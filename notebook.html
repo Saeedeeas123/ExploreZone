@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Notebook — lab·notebook</title>
+<meta name="description" content="Open lab notebook: engineering findings, design notes and method — each entry with its evidence and its limits.">
+<meta name="author" content="Saeed">
+<meta name="publisher" content="ExploreZone">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">lab<span>·</span>notebook</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Work</a>
+      <a href="notebook.html" aria-current="page">Notebook</a>
+      <a href="about.html">About</a>
+      <a href="https://github.com/Saeedeeas123">GitHub</a>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <section class="hero">
+    <p class="eyebrow">Open notebook</p>
+    <h1>Notes, findings and failures</h1>
+    <p class="lede">
+      This is the working half of the site. Each entry records something I learned while building: the
+      symptom, the evidence, the root cause, and what I would tell the next person. Entries are written when
+      the finding is verified — not when the project succeeds.
+    </p>
+    <div class="meta">
+      <span><b>10</b> entries published</span>
+      <span><b>3</b> in progress</span>
+      <span>All dates are the date of verification</span>
+    </div>
+  </section>
+
+  <h2>Engineering findings</h2>
+  <ul class="clean">
+    <li>
+      <div class="t"><a href="notes/note-aapt2-arm-trap.html">The ARM64 aapt2 trap that eats Android builds on-device</a></div>
+      <div class="d">2026-09 · Android · build systems — Gradle silently downloads an x86_64 binary and every build dies with “required file not found”. The fix is one Gradle property, and it has to be present <em>before</em> the first build.</div>
+    </li>
+    <li>
+      <div class="t"><a href="notes/note-llamacpp-addass.html">Zero tokens from a perfectly good GGUF model</a></div>
+      <div class="d">2026-10 · LLM inference · root cause — one boolean in the chat-template call made greedy decoding answer with an end-of-turn token. Plus a KV-cache issue that kills the session after ~7 turns.</div>
+    </li>
+    <li>
+      <div class="t"><a href="notes/note-mediapipe-task-header.html">MediaPipe model bundles never start with “PK”</a></div>
+      <div class="d">2026-10 · on-device ML · measured bytes — real <code>.task</code> bundles put the ZIP header at offset 2 or 4. A guard that requires it at byte 0 rejects every genuine file.</div>
+    </li>
+    <li>
+      <div class="t"><a href="notes/note-native-probe-technique.html">Debugging a native engine you are not allowed to run</a></div>
+      <div class="d">2026-10 · debugging method — when the app cannot be installed, rebuilt, or tapped, rebuild the same native library for Linux and mirror the JNI path line by line.</div>
+    </li>
+  </ul>
+
+  <h2>Design notes</h2>
+  <ul class="clean">
+    <li>
+      <div class="t"><a href="notes/note-find-do-architecture.html">Tasks are not goals: the FIND/DO layer model</a></div>
+      <div class="d">2026-10 · agent architecture — every Android task decomposes into ordered layers, each a pair of “find the right target” and “do one operator on it”, with a mandatory trace and a confirm window.</div>
+    </li>
+    <li>
+      <div class="t"><a href="notes/note-voice-as-touch.html">The voice-as-touch category is structurally empty</a></div>
+      <div class="d">2026-09 · landscape research — ~2,000 repos swept, 42 curated, 12 issue trackers mined. The ecosystem built goal-executing agents; nobody built the primitive layer.</div>
+    </li>
+    <li>
+      <div class="t"><a href="notes/note-signal-before-filter.html">Fix the signal before you filter it</a></div>
+      <div class="d">2026-09 · computer vision — four defects that all sat upstream of an existing smoothing filter. The filter was working perfectly; it was fighting a signal that had already been destroyed.</div>
+    </li>
+    <li>
+      <div class="t"><a href="notes/note-one-plan-two-renderings.html">One plan, two renderings: why the lips cannot disagree with the sound</a></div>
+      <div class="d">2026-10 · system design — driving a face and a voice from the same intermediate plan removes an entire class of synchronisation bugs instead of fixing them.</div>
+    </li>
+  </ul>
+
+  <h2>Method</h2>
+  <ul class="clean">
+    <li>
+      <div class="t"><a href="notes/note-github-as-notebook.html">GitHub as a lab notebook, honestly assessed</a></div>
+      <div class="d">2026-10 · research practice — what version control genuinely provides (timestamped provenance, citability through DOIs), what it does not (priority, a patent record), and the adoption data.</div>
+    </li>
+    <li>
+      <div class="t"><a href="notes/note-github-pages-limits.html">GitHub Pages: the limits that matter, and the one that doesn’t</a></div>
+      <div class="d">2026-10 · hosting — the numeric quotas are irrelevant for a text site. The commercial-use clause is not, and it decides where a business site can live.</div>
+    </li>
+  </ul>
+
+  <h2>In progress</h2>
+  <ul class="clean">
+    <li><div class="t">Rewriting a large Flutter + Rust app to English, line by line, with a machine-checked gate</div><div class="d">Draft — how to verify 4,826 translated lines without reading them all: interpolation sets, code skeletons, quote counts.</div></li>
+    <li><div class="t">What device testing actually caught that unit tests could not</div><div class="d">Draft — eight defects, one design rejection, and the difference between “builds” and “works”.</div></li>
+    <li><div class="t">A verified build skill, dogfooded on itself</div><div class="d">Draft — writing a procedure and then discovering, by inspection, that the shipped template could never build.</div></li>
+  </ul>
+
+  <div class="note">
+    <span class="label">Notebook policy</span>
+    Entries state what was measured, what was inferred, and what remains unknown. Where a claim came from a
+    vendor or a third party rather than my own measurement, it says so. Where something is unverified, the
+    entry is still marked in progress rather than published as a finding.
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 <b>Saeed</b> · ExploreZone — author, owner &amp; publisher</span>
+    <span>Static HTML. No build step, no trackers, no CDN.</span>
+    <span><a href="index.html">Home</a></span>
+    <span><a href="https://github.com/Saeedeeas123">github.com/Saeedeeas123</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

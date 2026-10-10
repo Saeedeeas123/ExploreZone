@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Work — lab·notebook</title>
+<meta name="description" content="Project inventory with verified numbers and honest status: Android agents, on-device AI, from-scratch systems, research sweeps and infrastructure.">
+<meta name="author" content="Saeed">
+<meta name="publisher" content="ExploreZone">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">lab<span>·</span>notebook</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="projects.html" aria-current="page">Work</a>
+      <a href="notebook.html">Notebook</a>
+      <a href="about.html">About</a>
+      <a href="https://github.com/Saeedeeas123">GitHub</a>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <section class="hero">
+    <p class="eyebrow">Inventory</p>
+    <h1>Work</h1>
+    <p class="lede">
+      Everything below was built, tested and broken on the same Android phone. Status labels are deliberately
+      unflattering: <em>shipped</em> means it produced an artifact that ran, <em>rebuilding</em> means device
+      testing rejected the design, and <em>research</em> means the output was knowledge, not code.
+    </p>
+    <div class="meta">
+      <span><b>14</b> tracked projects</span>
+      <span><b>6</b> shipped artifacts</span>
+      <span><b>3</b> deliberately abandoned</span>
+    </div>
+  </section>
+
+  <h2>Active</h2>
+  <div class="grid">
+
+    <div class="card">
+      <div class="tags"><span class="tag warn">Rebuilding</span><span class="tag info">Android</span></div>
+      <h3>Cosmo — offline Android agent</h3>
+      <p>An agent that takes a spoken order and executes it on the phone with no network. Three components, one
+      app: an on-device decision engine that scores candidate targets, an on-device language model for the
+      ambiguous work, and offline speech input.</p>
+      <p>Device testing proved the speech front-end and a single execution layer, then rejected the execution
+      model itself: no termination semantics (tasks re-ran in a loop) and a wrong candidate pick. v2 is being
+      rebuilt around ordered FIND/DO layers with a mandatory per-layer trace and a step-confirm window.</p>
+      <p class="metric">Round-1 device test: <code>8</code> defects found, fixed, and re-verified · architecture replaced</p>
+    </div>
+
+    <div class="card">
+      <div class="tags"><span class="tag warn">Device-testing</span><span class="tag info">CV</span></div>
+      <h3>EyePoint — eye-gaze pointer</h3>
+      <p>A full-screen overlay pointer aimed with the eyes, intended as the first input source of a hands-free
+      phone. Built as a fresh fork once the predecessor's jitter was traced to four defects that all sat
+      <em>upstream</em> of its smoothing filter.</p>
+      <p class="metric">Root causes: right-eye vertical landmark mix · normalization denominator switching · ×20 gain before filtering · no head-pose compensation</p>
+    </div>
+
+    <div class="card">
+      <div class="tags"><span class="tag warn">Device-testing</span><span class="tag info">Audio</span></div>
+      <h3>LibreCuts BeatLab — instrument detector</h3>
+      <p>An instrument (not merely beat) detector added to an open-source Android editor: every played moment
+      per instrument, per beat, delivered on a multi-timeline you can edit against.</p>
+      <p>Ordered in two versions — one using proven libraries, one written from the base with pure code and
+      mathematics — so the two can be compared directly.</p>
+      <p class="metric">Base chosen from a 10-project GitHub landscape · MIT-licensed foundation</p>
+    </div>
+
+  </div>
+
+  <h2>Shipped &amp; verified</h2>
+  <div class="grid">
+
+    <div class="card">
+      <div class="tags"><span class="tag ok">Shipped</span><span class="tag info">From scratch</span></div>
+      <h3>Anima — talking avatar</h3>
+      <p>A model of a human, written from the ground up with no third-party libraries: phonemizer, formant
+      voice synthesis, prosody, viseme curves, a 3D rasterized face, a neural language model with
+      hand-derived backpropagation, and ears that learn from the avatar's own voice.</p>
+      <p>The face is driven by the <em>same</em> plan that produces the audio, so lips and sound cannot disagree.</p>
+      <p class="metric">Perplexity <code>2.6</code> (unigram <code>44.1</code>) · gradient check <code>4.0e-08</code> · same-voice / unseen-voice / stranger-voice recognition <code>100%</code> · "hello" recognized at <code>3 dB</code> SNR · mirror symmetry <code>0.000000 mm</code> over 2,511 samples · boot from disk <code>0.3 s</code></p>
+    </div>
+
+    <div class="card">
+      <div class="tags"><span class="tag ok">Shipped</span><span class="tag info">Android</span></div>
+      <h3>MiniKeys — modular Android keyboard</h3>
+      <p>A keyboard assembled from reusable Gradle modules, including an OpenAI-compatible cloud client and an
+      Android-Keystore key vault. An offline-inference experiment was built, debugged, and then removed on
+      request after one engine crashed the app with no crash record to investigate.</p>
+      <p class="metric">APK <code>8,710,088 bytes</code> (down from 71 MB) · <code>14/14</code> unit tests green · zero native libraries · removal verified by scanning every <code>classes*.dex</code></p>
+    </div>
+
+    <div class="card">
+      <div class="tags"><span class="tag ok">Shipped</span><span class="tag info">From scratch</span></div>
+      <h3>LLM Lab — tiny GPT, twice</h3>
+      <p>A decoder-only transformer in pure NumPy with every gradient written by hand and checked numerically,
+      plus an Android app that reimplements the same architecture in Kotlin, trains it live on screen, and
+      loads the Python-trained checkpoint — with teaching docs bundled inside the app.</p>
+      <p class="metric">Kotlin vs NumPy: max <code>|Δp| = 1.513e-07</code> · APK <code>9,862,893 bytes</code> · crash root-caused to hardcoded model dimensions</p>
+    </div>
+
+    <div class="card">
+      <div class="tags"><span class="tag ok">Shipped</span><span class="tag info">Android</span></div>
+      <h3>Air Mouse — hand-tracking cursor</h3>
+      <p>A camera-driven cursor over all apps: palm centre tracked from the front camera, twelve pose gestures
+      detected and bound to actions through an accessibility service, with absolute and relative mapping.</p>
+      <p class="metric">9 builds shipped · tag history <code>v0.1.0 → v0.4.1</code> · 12-gesture explorer with live detection feedback</p>
+    </div>
+
+    <div class="card">
+      <div class="tags"><span class="tag ok">Verified</span><span class="tag info">Localization</span></div>
+      <h3>Operit2 — full English localization</h3>
+      <p>File-by-file, line-by-line conversion of a large Flutter + Rust application to fluent English, with a
+      machine-checked audit gate that verifies every translated line against its source: no residual CJK,
+      matching interpolation sets, preserved code skeleton, quote counts, indentation.</p>
+      <p class="metric"><code>3,579 / 4,826</code> lines verified (74.2%) · audit <code>0</code> flagged of 3,000 · 2 real syntax defects caught by the gate itself</p>
+    </div>
+
+    <div class="card">
+      <div class="tags"><span class="tag ok">Verified</span><span class="tag info">Toolchain</span></div>
+      <h3>android-build-ship — build &amp; release skill</h3>
+      <p>A written, versioned procedure plus a project template for building, signing, versioning and shipping
+      Android apps entirely on-device. Dogfooded on itself, then reused across the projects on this page.</p>
+      <p class="metric">Deployed with its own repository and first tag · a template defect was found by inspection before the first build ever ran</p>
+    </div>
+
+  </div>
+
+  <h2>Infrastructure &amp; tooling</h2>
+  <div class="grid">
+
+    <div class="card">
+      <div class="tags"><span class="tag ok">Verified</span><span class="tag info">Modules</span></div>
+      <h3>Premade modules</h3>
+      <p>Reusable Android modules extracted from finished work, each with a verified version: an
+      OpenAI-compatible LLM client with a Keystore key vault, an offline GGUF engine built on-device through
+      JNI, and an offline LLM engine with a model manager.</p>
+      <p class="metric">3 modules versioned and deposited · every module ships with its own failure notes</p>
+    </div>
+
+    <div class="card">
+      <div class="tags"><span class="tag ok">Verified</span><span class="tag info">CI</span></div>
+      <h3>Fork-based CI pipelines</h3>
+      <p>Building large upstream projects (Flutter + Rust) through forked GitHub Actions workflows, patched so
+      a signed APK is produced with no repository secrets — plus root-causing the failures from raw run logs.</p>
+      <p class="metric">Root-caused an unreachable download host inside GitHub-hosted runners (5/5 retries identical ⇒ not a flake) · patched signing without secrets</p>
+    </div>
+
+    <div class="card">
+      <div class="tags"><span class="tag ok">Verified</span><span class="tag info">Automation</span></div>
+      <h3>Agent &amp; automation skills</h3>
+      <p>Authored and deployed operating procedures that make agent work reproducible: a pre-execution project
+      architect with approval gates, a device UI-automation recipe, an Android build skill, and a live Linux
+      session with a viewer so work can be watched instead of guessed at.</p>
+      <p class="metric">4 skills authored · each written, deployed, and then tested on a real task</p>
+    </div>
+
+    <div class="card">
+      <div class="tags"><span class="tag info">System</span><span class="tag info">Personal</span></div>
+      <h3>Daily journal &amp; memory system</h3>
+      <p>A two-phase journal (midday verbatim capture, nightly structured form) backed by a memory library
+      with a dual-write vault, index, and backup protocol — the substrate this notebook is built on.</p>
+      <p class="metric">Running continuously since 2026-08 · every stored note has a vault backup and an index row</p>
+    </div>
+
+  </div>
+
+  <h2>Research outputs</h2>
+  <div class="grid">
+
+    <div class="card">
+      <div class="tags"><span class="tag info">Landscape</span><span class="tag info">Android</span></div>
+      <h3>Voice-as-touch — category landscape</h3>
+      <p>A systematic sweep to answer one question: does a voice replacement for touch primitives already
+      exist? Answer: no. The ecosystem converged on one-shot agents; the primitive layer exists only as
+      abandoned single-author repos.</p>
+      <p class="metric"><code>~2,000</code> repos swept in three keyword waves → <code>42</code> curated with verified metadata → <code>12</code> issue trackers mined for real failure evidence</p>
+    </div>
+
+    <div class="card">
+      <div class="tags"><span class="tag info">Landscape</span><span class="tag info">Prior art</span></div>
+      <h3>On-device build tooling — prior art</h3>
+      <p>Established what already exists for building Android apps on Android, and why the maintained
+      successor to the archived pioneer is a GUI IDE rather than something an agent can drive from a CLI.</p>
+      <p class="metric">Archived vs maintained status verified directly · conclusion recorded with rejection reasoning</p>
+    </div>
+
+    <div class="card">
+      <div class="tags"><span class="tag info">Method</span></div>
+      <h3>This notebook — GitHub as a lab notebook</h3>
+      <p>An honest assessment of using a version-controlled public repository as a scientific notebook:
+      what it genuinely provides (timestamped provenance, citability through DOIs) and what the adoption data
+      says about expecting an audience.</p>
+      <p class="metric">Primary sources checked: publisher documentation, practitioner notebooks, peer-reviewed adoption studies</p>
+    </div>
+
+  </div>
+
+  <h2>Deliberately stopped</h2>
+  <table>
+    <thead><tr><th>Project</th><th>Why it stopped</th><th>What it left behind</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Offline LLM engines inside MiniKeys</td>
+        <td>One engine crashed the app with no crash file, no tombstone and no kill record — unfalsifiable, so not worth chasing</td>
+        <td>Two real upstream bugs documented, plus a debugging technique for native failures</td>
+      </tr>
+      <tr>
+        <td>Cosmo v1 execution model</td>
+        <td>Device testing showed loops and wrong target selection — the design, not the code, was wrong</td>
+        <td>The layered FIND/DO architecture now used for v2</td>
+      </tr>
+      <tr>
+        <td>Air Mouse eye mode</td>
+        <td>Horizontal-only tracking with heavy jitter, caused by four identifiable defects</td>
+        <td>Became EyePoint, rebuilt from a clean pipeline</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Venture</h2>
+  <div class="card">
+    <div class="tags"><span class="tag info">Service</span><span class="tag ok">Defined scope</span></div>
+    <h3>ExploreZone — human-in-the-loop testing for AI products</h3>
+    <p>Three services, deliberately narrow: human-in-the-loop testing, product testing with reproducible bug
+    discovery and behaviour analysis, and model/workflow comparison under defined scenarios. Explicitly
+    <em>not</em> security auditing, penetration testing, compliance consulting, or generic "AI consulting".</p>
+    <p class="metric">Standard output: what was tested · what happened · why it matters · how to reproduce it</p>
+  </div>
+
+  <p style="margin-top:2.2rem">
+    Numbers on this page come from my own test runs, build logs, and on-device measurements.
+    Where something is unverified, it is labelled as such rather than rounded up —
+    see <a href="about.html">About</a> for the working method behind that rule.
+  </p>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 <b>Saeed</b> · ExploreZone — author, owner &amp; publisher</span>
+    <span>Static HTML. No build step, no trackers, no CDN.</span>
+    <span><a href="index.html">Home</a></span>
+    <span><a href="https://github.com/Saeedeeas123">github.com/Saeedeeas123</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

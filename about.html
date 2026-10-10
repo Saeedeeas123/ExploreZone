@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About — lab·notebook</title>
+<meta name="description" content="How I work, what I work with, and what I deliberately do not claim. Skills, toolchain, method and honest limits.">
+<meta name="author" content="Saeed">
+<meta name="publisher" content="ExploreZone">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">lab<span>·</span>notebook</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Work</a>
+      <a href="notebook.html">Notebook</a>
+      <a href="about.html" aria-current="page">About</a>
+      <a href="https://github.com/Saeedeeas123">GitHub</a>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <section class="hero">
+    <p class="eyebrow">About</p>
+    <h1>Method first</h1>
+    <p class="lede">
+      I am an independent engineer and entrepreneur. I build offline-first Android systems and on-device AI,
+      and I run a small testing practice for AI products. The through-line is not a technology — it is a
+      discipline: never report a result I have not measured, and never hide the parts that failed.
+    </p>
+    <div class="meta">
+      <span><b>Author, owner &amp; publisher</b> Saeed</span>
+      <span><b>Venture</b> ExploreZone</span>
+      <span><b>Contact</b> via GitHub</span>
+    </div>
+  </section>
+
+  <h2>Who publishes this</h2>
+  <table>
+    <thead><tr><th>Role</th><th>Name</th><th>Note</th></tr></thead>
+    <tbody>
+      <tr><td>Author</td><td>Saeed</td><td>Wrote every entry, built every project on this site, and ran every measurement</td></tr>
+      <tr><td>Owner &amp; publisher</td><td>Saeed</td><td>Owner of this notebook and of the account it is published from</td></tr>
+      <tr><td>Venture</td><td>ExploreZone</td><td>Human-in-the-loop testing for AI products — the commercial side of the same work</td></tr>
+      <tr><td>Published from</td><td>GitHub</td><td>Version-controlled; the site is served directly from the repository</td></tr>
+    </tbody>
+  </table>
+
+  <h2>How I work</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Root cause, not symptom</h3>
+      <p>A fix that only removes the visible error is a hypothesis, not a fix. I keep going until the failure
+      is explained — and I reproduce the original failure afterwards to prove it is gone.</p>
+    </div>
+    <div class="card">
+      <h3>Verify on the real device</h3>
+      <p>Unit tests and successful builds are not evidence that something works. Every project on this site
+      has been installed and exercised on an actual phone, by a human, before it was called working.</p>
+    </div>
+    <div class="card">
+      <h3>Measure, then claim</h3>
+      <p>Numbers on this site come from test runs and build logs — perplexity against a baseline, gradient
+      checks, byte sizes, flagged-line counts. If a number is missing, the claim is missing.</p>
+    </div>
+    <div class="card">
+      <h3>Label uncertainty</h3>
+      <p>Measured, inferred, and reported-by-someone-else are three different things. I mark which one a
+      statement is, and I keep unverified material marked as a draft rather than publishing it as a finding.</p>
+    </div>
+    <div class="card">
+      <h3>Stop what cannot be evidenced</h3>
+      <p>When a failure leaves no crash record, no tombstone and no log, further chasing is guesswork. I stop,
+      remove the feature, verify the removal byte-level, and document what was learned instead.</p>
+    </div>
+    <div class="card">
+      <h3>Write it down</h3>
+      <p>Knowledge that lives only in a chat history is lost. Findings get written into reusable procedures
+      and versioned documents, so the next attempt starts where the last one ended.</p>
+    </div>
+  </div>
+
+  <h2>Capabilities</h2>
+  <table>
+    <thead><tr><th>Area</th><th>What I actually do</th><th>Evidence on this site</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Android engineering</td>
+        <td>Kotlin apps, Gradle/AGP build configuration, accessibility services, overlay windows, foreground services, camera pipelines, custom input methods (IME), Compose and XML/View UIs</td>
+        <td>Air Mouse, EyePoint, MiniKeys, Cosmo</td>
+      </tr>
+      <tr>
+        <td>On-device AI / ML</td>
+        <td>Local LLM inference, GGUF models, MediaPipe LLM Inference, LiteRT, offline speech-to-text, keyword spotting, model file validation, JNI integration</td>
+        <td>MiniKeys modules, Cosmo, voice-as-touch research</td>
+      </tr>
+      <tr>
+        <td>From-scratch systems</td>
+        <td>Neural networks with hand-derived backpropagation, DSP (FFT, formant synthesis, LPC, DTW), 3D rasterization, PNG/APNG encoding — standard library only, no ML frameworks</td>
+        <td>Anima, LLM Lab</td>
+      </tr>
+      <tr>
+        <td>Build &amp; release</td>
+        <td>On-device Android toolchain (proot Linux, ARM64), ARM-native toolchain overrides, signing, tagging and versioning, fork-based CI workflows, root-causing CI failures from raw logs</td>
+        <td>android-build-ship, Operit2 CI</td>
+      </tr>
+      <tr>
+        <td>Languages</td>
+        <td>Kotlin, Python, Java, Dart/Flutter, Bash, Rust (reading and modifying), HTML/CSS/JS</td>
+        <td>Across all projects</td>
+      </tr>
+      <tr>
+        <td>Quality &amp; verification</td>
+        <td>Unit tests, cross-implementation equivalence checks, numeric gradient checks, deterministic audit gates, device test protocols with numeric acceptance criteria</td>
+        <td>LLM Lab, Anima, Operit2 localization</td>
+      </tr>
+      <tr>
+        <td>Applied research</td>
+        <td>Systematic repository landscapes with verified metadata, mining issue trackers for real failure evidence, prior-art and licence/status verification, landscape synthesis</td>
+        <td>Voice-as-touch, on-device build prior art</td>
+      </tr>
+      <tr>
+        <td>AI product testing</td>
+        <td>Human-in-the-loop testing, reproducible bug discovery, behaviour analysis, model and workflow comparison, structured evidence reporting</td>
+        <td>ExploreZone</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Environment</h2>
+  <p>
+    The unusual part of my setup is that there is no workstation. Compilation, containers, version control and
+    testing all happen on the same phone I use as the test device:
+  </p>
+  <table>
+    <thead><tr><th>Layer</th><th>What it is</th></tr></thead>
+    <tbody>
+      <tr><td>Host</td><td>Redmi Note 13 Pro 5G · Android 16 · MediaTek Dimensity 7200 Ultra · 8 cores</td></tr>
+      <tr><td>Build environment</td><td>Linux container (proot Ubuntu 24.04, ARM64) with JDK 17, Android SDK, Gradle/AGP, Python 3.12, git</td></tr>
+      <tr><td>CI</td><td>GitHub Actions on forks, patched where the upstream workflow cannot run as shipped</td></tr>
+      <tr><td>Test device</td><td>The same phone — no emulator, no second machine</td></tr>
+    </tbody>
+  </table>
+  <p>
+    This constraint is deliberate. It forces every dependency, download and toolchain assumption to be
+    explicit, and it is the reason several entries in the <a href="notebook.html">notebook</a> exist at all.
+  </p>
+
+  <h2>Timeline</h2>
+  <p class="lede" style="font-size:.95rem">
+    I list project work rather than a conventional employment history: everything below was designed, built
+    and verified by me, and the dates are when the work was done.
+  </p>
+  <table>
+    <thead><tr><th>Period</th><th>Work</th><th>Outcome</th></tr></thead>
+    <tbody>
+      <tr><td>2026-10</td><td>Cosmo v2 architecture · MiniKeys v0.5.0 · Anima status audit · Operit2 localization · LibreCuts BeatLab</td><td>Rebuild ordered · offline inference removed and verified · 74.2% of a large app translated under a machine-checked gate</td></tr>
+      <tr><td>2026-09</td><td>EyePoint · voice-as-touch landscape · android-build-ship skill · ExploreZone scope</td><td>Gaze pipeline rebuilt from root causes · category landscape with 42 curated projects · build skill deployed and dogfooded</td></tr>
+      <tr><td>2026-08</td><td>Air Mouse v0.4.1 · memory and journal system · agent skill authoring</td><td>9th build shipped with 12-gesture explorer · reproducible agent procedures in place</td></tr>
+    </tbody>
+  </table>
+
+  <h2>What I do not claim</h2>
+  <div class="note">
+    <span class="label">Honest limits</span>
+    <ul style="margin:.4rem 0 0; padding-left:1.1rem">
+      <li>I am not a security auditor or penetration tester — ExploreZone's scope explicitly excludes it.</li>
+      <li>Nothing here has been published in a peer-reviewed venue. My "notebook" is a working record, not a paper.</li>
+      <li>Several projects are mid-flight: EyePoint and Cosmo are awaiting device-test rounds, and I say so on the Work page rather than labelling them finished.</li>
+      <li>Anima's face is measured-correct but low-poly; its ears handle isolated words, not continuous speech; its brain is a language model, not a chatbot.</li>
+      <li>The work is currently solo. There is no team size to report and no client logo wall.</li>
+      <li>Where a number came from a vendor rather than my own measurement, the entry says so.</li>
+    </ul>
+  </div>
+
+  <h2>Contact</h2>
+  <p>
+    The fastest route is GitHub — issues and messages there reach me directly, and most of my work is
+    versioned there:
+    <a href="https://github.com/Saeedeeas123">github.com/Saeedeeas123</a>.
+  </p>
+
+  <h2>About this notebook</h2>
+  <p>
+    This site is hand-written static HTML and CSS. No generator, no build step, no JavaScript, no fonts or
+    assets loaded from anywhere else, no analytics. It is version-controlled like everything else, and each
+    entry is dated when its finding was verified.
+  </p>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 <b>Saeed</b> · ExploreZone — author, owner &amp; publisher</span>
+    <span>Static HTML. No build step, no trackers, no CDN.</span>
+    <span><a href="index.html">Home</a></span>
+    <span><a href="https://github.com/Saeedeeas123">github.com/Saeedeeas123</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

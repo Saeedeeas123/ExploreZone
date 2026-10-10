@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GitHub Pages: the limits that matter — lab·notebook</title>
+<meta name="description" content="The numeric quotas are irrelevant for a text site. The commercial-use clause is not, and it decides where a business site can live.">
+<meta name="author" content="Saeed">
+<meta name="publisher" content="ExploreZone">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="../index.html">lab<span>·</span>notebook</a>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../projects.html">Work</a>
+      <a href="../notebook.html">Notebook</a>
+      <a href="../about.html">About</a>
+      <a href="https://github.com/Saeedeeas123">GitHub</a>
+    </div>
+  </div>
+</nav>
+
+<main class="read">
+<article>
+
+  <header>
+    <p class="eyebrow">Method · 2026-10 · hosting</p>
+    <h1>GitHub Pages: the limits that matter, and the one that doesn’t</h1>
+    <div class="tags"><span class="tag ok">Read from primary docs</span><span class="tag">Hosting</span></div>
+  </header>
+
+  <h2>The numbers</h2>
+  <table>
+    <thead><tr><th>Limit</th><th>Value</th><th>Type</th></tr></thead>
+    <tbody>
+      <tr><td>Published site size</td><td>≤ 1 GB</td><td>Hard</td></tr>
+      <tr><td>Source repository size</td><td>1 GB recommended</td><td>Soft</td></tr>
+      <tr><td>Bandwidth</td><td>100 GB per month</td><td>Soft</td></tr>
+      <tr><td>Builds</td><td>10 per hour — not applicable when the site is built by a custom workflow</td><td>Soft</td></tr>
+      <tr><td>Deployment timeout</td><td>10 minutes</td><td>Hard</td></tr>
+      <tr><td>Sites per account</td><td>One user/organisation site; one project site per repository</td><td>Hard</td></tr>
+      <tr><td>Content type</td><td>Static files only (HTML/CSS/JS, optionally through a build step)</td><td>Architectural</td></tr>
+      <tr><td>Free plan</td><td>Public repositories only; private repositories need a paid plan</td><td>Plan-gated</td></tr>
+      <tr><td>Commercial use</td><td>Not allowed as a general-purpose free host for a business</td><td>Policy</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Why the numbers do not matter here</h2>
+  <p>
+    This entire site — every page, every stylesheet — is a few tens of kilobytes. The 1 GB site limit is
+    roughly four orders of magnitude away. At a typical page weight, 100 GB per month of bandwidth is on the
+    order of a hundred thousand page views. And the ten-builds-per-hour limit only applies to the built-in
+    build path; a custom workflow removes it entirely.
+  </p>
+  <p>
+    The practical rule that comes out of this: do not host large media in the repository. Keep images small
+    and keep video elsewhere. That is the only way a normal text site gets anywhere near the limits.
+  </p>
+
+  <h2>The three limits that actually constrain</h2>
+  <ol>
+    <li>
+      <strong>Static only.</strong> No server-side code, no database, no custom headers or server-side
+      redirects, no secret storage. Anything dynamic has to be client-side or an external service.
+    </li>
+    <li>
+      <strong>No commercial use.</strong> The documentation is explicit that this is not a free host for an
+      online business, an e-commerce site, or software-as-a-service, and that it should not be used for
+      sensitive transactions such as passwords or card numbers. A personal CV, portfolio, blog, project
+      documentation or academic notebook is fine. A product landing page that sells is not.
+    </li>
+    <li>
+      <strong>Free plan means public repositories.</strong> Since a CV or notebook is meant to be public, this
+      is usually a non-issue — but it rules out a private staging site without a paid plan.
+    </li>
+  </ol>
+  <p>
+    Also worth knowing: visitor IP addresses are logged for security purposes regardless of sign-in.
+  </p>
+
+  <h2>So what are those blog-like sites?</h2>
+  <p>
+    They are the same service with a static site generator on top. Two URL shapes exist: a user site at
+    <code>&lt;user&gt;.github.io</code> and a project site at <code>&lt;user&gt;.github.io/&lt;repository&gt;</code>.
+    The generators in common use are Jekyll (built natively), Hugo, Astro, and — for anyone with an Obsidian
+    vault — Quartz, which is designed to publish a vault as a site with wikilinks, backlinks and search.
+  </p>
+  <p>Primary sources:</p>
+  <ul>
+    <li><a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages">What is GitHub Pages?</a></li>
+    <li><a href="https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits">GitHub Pages limits</a></li>
+    <li><a href="https://quartz.jzhao.xyz/">Quartz documentation</a></li>
+  </ul>
+
+  <h2>The architectural conclusion</h2>
+  <blockquote>
+    Static hosting is the right home for the identity-and-proof node — the CV, the notebook, the project
+    documentation. It is the wrong home for anything that transacts. Those are two different sites, and they
+    should not be forced into one.
+  </blockquote>
+
+  <div class="note">
+    <span class="label">Note</span>
+    Numeric free-tier limits for other static hosts were not verified for this entry, so no comparison table
+    is given. The GitHub-specific facts above were read directly from GitHub's own documentation.
+  </div>
+
+</article>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><a href="../notebook.html">← All notebook entries</a></span>
+    <span>© 2026 Saeed · ExploreZone</span>
+    <span><a href="../index.html">Home</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

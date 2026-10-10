@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fix the signal before you filter it — lab·notebook</title>
+<meta name="description" content="Four defects that all sat upstream of an existing smoothing filter. The filter was working perfectly; it was fighting a signal that had already been destroyed.">
+<meta name="author" content="Saeed">
+<meta name="publisher" content="ExploreZone">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="../index.html">lab<span>·</span>notebook</a>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../projects.html">Work</a>
+      <a href="../notebook.html">Notebook</a>
+      <a href="../about.html">About</a>
+      <a href="https://github.com/Saeedeeas123">GitHub</a>
+    </div>
+  </div>
+</nav>
+
+<main class="read">
+<article>
+
+  <header>
+    <p class="eyebrow">Design note · 2026-09 · computer vision · signal processing</p>
+    <h1>Fix the signal before you filter it</h1>
+    <div class="tags"><span class="tag ok">Root causes verified in code</span><span class="tag">Gaze</span><span class="tag">Signal</span></div>
+  </header>
+
+  <h2>Symptom</h2>
+  <p>
+    A camera-driven pointer, aimed with the eyes, tracked correctly on one axis and vibrated heavily. The
+    natural instinct — and the instinct the previous author followed — is to reach for the filter. Add
+    smoothing, increase the smoothing, add a second filter.
+  </p>
+  <p>
+    That instinct was already exhausted: the app <em>had</em> a well-known smoothing filter downstream, tuned
+    and present. It still vibrated. That single observation is what turned the problem from “tuning” into
+    “architecture”.
+  </p>
+
+  <h2>Root causes — all upstream of the filter</h2>
+  <table>
+    <thead><tr><th>#</th><th>Defect</th><th>Effect</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>The vertical centre of the right eye was averaged from <em>both</em> eyes' eyelid landmarks instead of the right eye's own lids</td>
+        <td>A noisy, semantically wrong vertical axis — matching the reported “horizontal kind of works, vertical does not”</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>The normalisation denominator switched between eye height and eye width depending on how open the eyelid was</td>
+        <td>Discontinuous jumps mid-gaze, including during blinks</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>The raw landmark offset was multiplied by roughly ×20 and clamped <em>before</em> any smoothing</td>
+        <td>Camera noise amplified ~20×, then handed to a filter that had to fight an already-destroyed signal</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>No head-pose compensation anywhere</td>
+        <td>Iris-offset gaze is confounded by head micro-motion — an unmodelled input</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>The conclusion</h2>
+  <blockquote>
+    No filter can recover a signal that was destroyed before it arrived. Adding smoothing to a noisy,
+    semantically wrong, discontinuously normalised input produces a smooth version of the wrong answer.
+  </blockquote>
+  <p>
+    This is why the project was restarted from a clean pipeline rather than patched: the ordering of the
+    stages was the bug, and patching the last stage cannot fix an ordering problem.
+  </p>
+
+  <h2>The corrected order</h2>
+  <ol>
+    <li>Fix the signal: per-eye landmark sets, one stable normalisation denominator, drop blink and low-confidence frames, average both eyes.</li>
+    <li>Calibrate per axis with visible targets and a running guard.</li>
+    <li>Filter with a tuned per-axis smoother — mandatory, but only now, on a signal worth filtering.</li>
+    <li>Add a velocity deadzone and dwell stabilisation so the pointer does not act on jitter.</li>
+    <li>Interpolate rendering to the display rate.</li>
+  </ol>
+
+  <h2>Acceptance criteria, stated numerically</h2>
+  <p>
+    The pipeline is not “done” when it builds. It is done when a human tests it against numbers: latency under
+    roughly 150 ms, acquisition under a second, jitter bounded over a second of stable gaze, correct tracking
+    on both axes, no mirroring, and correct behaviour over other apps.
+  </p>
+
+  <div class="note">
+    <span class="label">Transferable rule</span>
+    When a system with an existing “fix” still fails, check whether the fix is downstream of the damage. If it
+    is, the fix is not wrong — the pipeline order is.
+  </div>
+
+</article>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><a href="../notebook.html">← All notebook entries</a></span>
+    <span>© 2026 Saeed · ExploreZone</span>
+    <span><a href="../index.html">Home</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

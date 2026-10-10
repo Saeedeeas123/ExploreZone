@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tasks are not goals: the FIND/DO layer model — lab·notebook</title>
+<meta name="description" content="Every phone task decomposes into ordered layers, each a pair of find-the-target and do-one-operator, with a mandatory trace and a confirm window.">
+<meta name="author" content="Saeed">
+<meta name="publisher" content="ExploreZone">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="../index.html">lab<span>·</span>notebook</a>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../projects.html">Work</a>
+      <a href="../notebook.html">Notebook</a>
+      <a href="../about.html">About</a>
+      <a href="https://github.com/Saeedeeas123">GitHub</a>
+    </div>
+  </div>
+</nav>
+
+<main class="read">
+<article>
+
+  <header>
+    <p class="eyebrow">Design note · 2026-10 · agent architecture</p>
+    <h1>Tasks are not goals: the FIND/DO layer model</h1>
+    <div class="tags"><span class="tag warn">Design in progress</span><span class="tag">Agents</span><span class="tag">Android</span></div>
+  </header>
+
+  <h2>What failed first</h2>
+  <p>
+    The first version of an on-device agent treated a spoken instruction as a goal and tried to execute it.
+    Two failures came out of real device testing, and both were structural rather than accidental:
+  </p>
+  <ul>
+    <li><strong>No termination semantics.</strong> After the agent opened another app, returning to the agent re-ran the task and opened it again — a loop that only a force-close could break.</li>
+    <li><strong>Wrong candidate.</strong> “Open Telegram and open the first chat” opened a different app entirely. The system had choices and no way to justify or correct them.</li>
+  </ul>
+  <p>
+    The verdict from testing was blunt and correct: the idea was present, the execution model was not.
+  </p>
+
+  <h2>The model</h2>
+  <p>
+    A task is not a goal. It is an <em>ordered list of layers</em>, and every layer is a pair:
+  </p>
+  <table>
+    <thead><tr><th>Half</th><th>Meaning</th><th>Examples</th></tr></thead>
+    <tbody>
+      <tr><td><strong>FIND</strong></td><td>Locate the right target at this level</td><td>package · activity · class · object · element · chat · text field</td></tr>
+      <tr><td><strong>DO</strong></td><td>Apply exactly one operator to it</td><td>open · read · write · append · copy · move · compare</td></tr>
+    </tbody>
+  </table>
+  <p>
+    “Open Telegram, then open the first chat” is therefore two layers, each with its own find-and-do, applied
+    recursively: find the Telegram package and open it; then find the chat element and open it.
+  </p>
+
+  <h2>Why this shape</h2>
+  <ul>
+    <li><strong>Every step becomes checkable.</strong> A single ambiguous decision is isolated in one layer instead of being buried in one big plan.</li>
+    <li><strong>Confidence has a place to live.</strong> A scoring layer ranks the candidate options for both halves of every layer, in sub-millisecond time, so the decision is explicit rather than implicit.</li>
+    <li><strong>The language model keeps only the hard work.</strong> Long or ambiguous orders, and text analysis or creation, go to the model; everything mechanical stays in code.</li>
+    <li><strong>Termination is representable.</strong> A task is finished when the layer list is exhausted — which is exactly the property the first version lacked.</li>
+  </ul>
+
+  <h2>The two rules that make it debuggable</h2>
+  <p>
+    <strong>Trace is first-class.</strong> Every layer records the candidate options it was presented with,
+    their scores, and the final decision for both the find and the do. If the agent picks wrong, the reason is
+    visible rather than inferred.
+  </p>
+  <p>
+    <strong>Step-confirm.</strong> The task can walk layer by layer with a human confirming or overriding each
+    choice — and the confirmations are kept as training data, so the manual step is an investment rather than
+    a cost.
+  </p>
+
+  <div class="note">
+    <span class="label">Status of this claim</span>
+    This is a design, not a verified result. It was specified after a rejected build and is currently being
+    implemented. I am publishing it as a design note precisely because the notebook policy is to mark the
+    difference between “measured” and “reasoned” — and this one is reasoned.
+  </div>
+
+</article>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><a href="../notebook.html">← All notebook entries</a></span>
+    <span>© 2026 Saeed · ExploreZone</span>
+    <span><a href="../index.html">Home</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
