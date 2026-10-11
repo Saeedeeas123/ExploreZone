@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design 05 — Glass / Aurora</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--glass:rgba(255,255,255,.07);--edge:rgba(255,255,255,.16);--txt:#f2f5ff;--dim:#a9b3cf}
+  body{background:#070a18;color:var(--txt);font-family:"SF Pro Display",-apple-system,system-ui,"Segoe UI",Roboto,sans-serif;
+       font-size:15px;line-height:1.6;min-height:100vh;overflow-x:hidden}
+  .aurora{position:fixed;inset:0;z-index:0;pointer-events:none}
+  .blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55}
+  .b1{width:52vw;height:52vw;left:-12vw;top:-14vw;background:radial-gradient(circle at 30% 30%,#5b6cff,#2b1f7a 70%)}
+  .b2{width:46vw;height:46vw;right:-14vw;top:6vh;background:radial-gradient(circle at 60% 40%,#00d5c0,#00565c 70%)}
+  .b3{width:60vw;height:60vw;left:6vw;bottom:-26vw;background:radial-gradient(circle at 50% 50%,#c04bff,#3d1060 70%)}
+  .page{position:relative;z-index:1;max-width:1000px;margin:0 auto;padding:22px 18px 70px}
+  .bar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;
+       background:var(--glass);border:1px solid var(--edge);border-radius:18px;padding:12px 16px;
+       backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+  .brand{font-size:13px;font-weight:650;letter-spacing:.06em}
+  .brand i{color:#7ef0dd;font-style:normal}
+  nav{display:flex;gap:6px;flex-wrap:wrap}
+  nav a{font-size:13px;color:var(--dim);text-decoration:none;padding:6px 12px;border-radius:999px}
+  nav a:hover{background:rgba(255,255,255,.1);color:var(--txt)}
+  .hero{margin-top:26px;background:var(--glass);border:1px solid var(--edge);border-radius:26px;padding:34px 24px;
+        backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);box-shadow:0 24px 60px rgba(0,0,0,.4)}
+  .kicker{display:inline-block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#8ff3e2;
+          background:rgba(0,213,192,.12);border:1px solid rgba(0,213,192,.3);padding:5px 12px;border-radius:999px;margin-bottom:18px}
+  h1{font-size:clamp(30px,7.6vw,52px);line-height:1.06;letter-spacing:-.03em;font-weight:600}
+  h1 em{font-style:normal;background:linear-gradient(100deg,#8ff3e2,#a99bff 60%,#f0a6ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .sub{margin-top:16px;color:var(--dim);max-width:54ch}
+  .by{margin-top:14px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#7c88a8}
+  h2{margin:42px 0 14px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#8d97b5;font-weight:600}
+  .cards{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+  .card{background:var(--glass);border:1px solid var(--edge);border-radius:20px;padding:20px;
+        backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);transition:transform .18s,border-color .18s}
+  .card:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.3)}
+  .card .tag{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#8ff3e2}
+  .card h3{margin-top:8px;font-size:18px;font-weight:600;letter-spacing:-.01em}
+  .card p{margin-top:9px;color:var(--dim);font-size:14px}
+  .card .m{margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.12);font-size:13px;color:#cfe9ff}
+  .stats{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+  .stat{background:var(--glass);border:1px solid var(--edge);border-radius:18px;padding:18px;text-align:center;
+        backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+  .stat b{display:block;font-size:clamp(22px,5.6vw,30px);font-weight:600;letter-spacing:-.03em;
+          background:linear-gradient(100deg,#8ff3e2,#a99bff);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .stat span{display:block;margin-top:7px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#8d97b5}
+  .note{margin-top:18px;background:linear-gradient(120deg,rgba(91,108,255,.16),rgba(0,213,192,.12));
+        border:1px solid var(--edge);border-radius:22px;padding:26px;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+  .note h3{font-size:22px;font-weight:600;letter-spacing:-.02em;max-width:34ch}
+  .note p{margin-top:10px;color:var(--dim);max-width:60ch}
+  .note a{display:inline-block;margin-top:16px;font-size:13px;font-weight:600;color:#07131a;text-decoration:none;
+          background:linear-gradient(100deg,#8ff3e2,#a99bff);padding:10px 18px;border-radius:999px}
+  .note a:hover{filter:brightness(1.1)}
+  footer{margin-top:44px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+         font-size:12px;color:#7c88a8;border-top:1px solid rgba(255,255,255,.1);padding-top:16px}
+</style>
+</head>
+<body>
+<div class="aurora"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
+
+<div class="page">
+
+  <div class="bar">
+    <div class="brand">ExploreZone <i>·</i> lab·notebook</div>
+    <nav><a href="#">Home</a><a href="#">Work</a><a href="#">Notebook</a><a href="#">About</a></nav>
+  </div>
+
+  <section class="hero">
+    <span class="kicker">Open notebook · runs without a network</span>
+    <h1>I build AI systems that run <em>entirely on the phone</em>.</h1>
+    <p class="sub">Offline Android agents, on-device language models, and systems written from scratch — every claim measured on real hardware.</p>
+    <p class="by">By Saeed — author, owner &amp; publisher · ExploreZone</p>
+  </section>
+
+  <h2>Selected work</h2>
+  <div class="cards">
+    <div class="card">
+      <span class="tag">01 · Agent</span>
+      <h3>Cosmo — offline Android agent</h3>
+      <p>Voice → decision → action with no network. The first execution model was rejected by device testing, so v2 is rebuilt around ordered FIND/DO layers with a mandatory trace.</p>
+      <p class="m">8 defects found in round one</p>
+    </div>
+    <div class="card">
+      <span class="tag">02 · From scratch</span>
+      <h3>Anima — talking avatar from pure math</h3>
+      <p>Phonemizer, formant voice synthesis, viseme curves, a 3D rasterized face and a neural language model with hand-derived backpropagation — standard library only.</p>
+      <p class="m">Perplexity 2.6 vs 44.1 unigram</p>
+    </div>
+    <div class="card">
+      <span class="tag">03 · Modules</span>
+      <h3>MiniKeys — modular Android keyboard</h3>
+      <p>A keyboard assembled from reusable modules, with an OpenAI-compatible client and an Android-Keystore key vault.</p>
+      <p class="m">14/14 unit tests · APK 8,710,088 bytes</p>
+    </div>
+  </div>
+
+  <h2>Numbers</h2>
+  <div class="stats">
+    <div class="stat"><b>4.0e-08</b><span>Gradient check</span></div>
+    <div class="stat"><b>≤11.5%</b><span>Formant error</span></div>
+    <div class="stat"><b>129 / 0</b><span>Links / broken</span></div>
+  </div>
+
+  <div class="note">
+    <h3>The ARM64 aapt2 trap that eats Android builds on-device</h3>
+    <p>One Gradle property decides whether any on-device Android build can succeed — and the error message says “file not found”, which is why it costs people days.</p>
+    <a href="#">Read the entry →</a>
+  </div>
+
+  <footer>
+    <span>© 2026 Saeed · ExploreZone</span>
+    <span>Design 05 — Glass / Aurora</span>
+  </footer>
+
+</div>
+</body>
+</html>

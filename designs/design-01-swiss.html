@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design 01 — Swiss / International Typographic</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--red:#e2231a;--ink:#111}
+  body{background:#fff;color:var(--ink);font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:15px;line-height:1.45;-webkit-font-smoothing:antialiased}
+  .sheet{max-width:1040px;margin:0 auto;padding:20px 20px 64px}
+  header{border-bottom:2px solid var(--ink);padding-bottom:9px;display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap}
+  .brand{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+  .brand i{color:var(--red);font-style:normal}
+  nav{display:flex;gap:15px;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+  nav a{color:var(--ink);text-decoration:none;padding-bottom:2px;border-bottom:1px solid transparent}
+  nav a:hover{color:var(--red);border-bottom-color:var(--red)}
+  .hero{padding:54px 0 42px;border-bottom:1px solid #c9c9c9}
+  .kicker{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:20px}
+  h1{font-size:clamp(32px,8.5vw,66px);line-height:.97;letter-spacing:-.035em;font-weight:700;max-width:17ch}
+  .sub{margin-top:24px;max-width:46ch;color:#3d3d3d}
+  .by{margin-top:16px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#8a8a8a}
+  h2{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#8a8a8a;font-weight:700;margin:44px 0 0;padding-bottom:8px;border-bottom:1px solid #c9c9c9}
+  .row{display:grid;grid-template-columns:56px 1fr;gap:18px;padding:22px 0;border-bottom:1px solid #e2e2e2;align-items:start}
+  .num{font-size:12px;font-weight:700;color:var(--red);letter-spacing:.06em;padding-top:3px}
+  .row h3{font-size:19px;letter-spacing:-.01em;font-weight:700}
+  .row p{margin-top:7px;color:#3d3d3d;max-width:52ch}
+  .metric{margin-top:10px;font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:#111;border-left:3px solid var(--red);padding-left:10px}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-bottom:1px solid #c9c9c9}
+  .stat{padding:24px 18px 24px 0;border-right:1px solid #e2e2e2}
+  .stat:last-child{border-right:0}
+  .stat b{display:block;font-size:clamp(26px,6vw,40px);letter-spacing:-.04em;font-weight:700}
+  .stat span{display:block;margin-top:6px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#8a8a8a}
+  .note{margin-top:44px;padding:26px 0;border-top:2px solid var(--ink);border-bottom:1px solid #c9c9c9}
+  .note .tagline{font-size:22px;letter-spacing:-.015em;font-weight:700;max-width:30ch}
+  .note p{margin-top:12px;color:#3d3d3d;max-width:56ch}
+  .more{display:inline-block;margin-top:16px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--red);text-decoration:none;border-bottom:1px solid var(--red);padding-bottom:2px}
+  footer{margin-top:46px;padding-top:14px;border-top:2px solid var(--ink);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#8a8a8a}
+  @media(max-width:640px){
+    .row{grid-template-columns:40px 1fr;gap:12px}
+    .stats{grid-template-columns:1fr}
+    .stat{border-right:0;border-bottom:1px solid #e2e2e2;padding:18px 0}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <header>
+    <div class="brand">ExploreZone <i>/</i> lab·notebook</div>
+    <nav>
+      <a href="#">Home</a><a href="#">Work</a><a href="#">Notebook</a><a href="#">About</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <p class="kicker">Open notebook — Android · On-device AI · Automation</p>
+    <h1>I build AI systems that run entirely on the phone.</h1>
+    <p class="sub">Offline Android agents, on-device language models, and systems written from scratch — every claim measured on real hardware.</p>
+    <p class="by">By Saeed — author, owner &amp; publisher · ExploreZone</p>
+  </section>
+
+  <h2>Selected work</h2>
+
+  <article class="row">
+    <div class="num">01</div>
+    <div>
+      <h3>Cosmo — offline Android agent</h3>
+      <p>Voice → decision → action with no network. The first execution model was rejected by device testing, so v2 is rebuilt around ordered FIND/DO layers with a mandatory trace.</p>
+      <p class="metric">8 defects found in round one</p>
+    </div>
+  </article>
+
+  <article class="row">
+    <div class="num">02</div>
+    <div>
+      <h3>Anima — talking avatar from pure math</h3>
+      <p>Phonemizer, formant voice synthesis, viseme curves, a 3D rasterized face and a neural language model with hand-derived backpropagation — standard library only.</p>
+      <p class="metric">Perplexity 2.6 vs 44.1 unigram</p>
+    </div>
+  </article>
+
+  <article class="row">
+    <div class="num">03</div>
+    <div>
+      <h3>MiniKeys — modular Android keyboard</h3>
+      <p>A keyboard assembled from reusable modules, with an OpenAI-compatible client and an Android-Keystore key vault.</p>
+      <p class="metric">14/14 unit tests · APK 8,710,088 bytes</p>
+    </div>
+  </article>
+
+  <h2>Numbers</h2>
+  <div class="stats">
+    <div class="stat"><b>4.0e-08</b><span>Gradient check</span></div>
+    <div class="stat"><b>≤11.5%</b><span>Formant recovery error</span></div>
+    <div class="stat"><b>129 / 0</b><span>Links / broken</span></div>
+  </div>
+
+  <div class="note">
+    <p class="kicker" style="margin-bottom:12px">From the notebook</p>
+    <p class="tagline">The ARM64 aapt2 trap that eats Android builds on-device</p>
+    <p>One Gradle property decides whether any on-device Android build can succeed — and the error message says “file not found”, which is why it costs people days.</p>
+    <a class="more" href="#">Read the entry →</a>
+  </div>
+
+  <footer>
+    <span>© 2026 Saeed · ExploreZone</span>
+    <span>Design 01 — Swiss / International</span>
+  </footer>
+
+</div>
+</body>
+</html>

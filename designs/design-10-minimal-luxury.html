@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design 10 — Minimal Luxury</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--paper:#faf9f7;--ink:#141414;--dim:#8d8a85;--hair:#e0ddd7;--gold:#a9853f}
+  body{background:var(--paper);color:var(--ink);font-family:"Optima","Palatino Linotype",Palatino,Georgia,serif;
+       font-size:16px;line-height:1.85;-webkit-font-smoothing:antialiased}
+  .page{max-width:820px;margin:0 auto;padding:0 26px 110px}
+  .top{display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap;
+       padding:34px 0 20px;border-bottom:1px solid var(--hair)}
+  .brand{font-size:11px;letter-spacing:.42em;text-transform:uppercase}
+  .brand em{font-style:normal;color:var(--gold)}
+  nav{display:flex;gap:26px;flex-wrap:wrap}
+  nav a{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--dim);text-decoration:none}
+  nav a:hover{color:var(--ink)}
+  .hero{padding:96px 0 84px;border-bottom:1px solid var(--hair)}
+  .eyebrow{font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:40px}
+  h1{font-size:clamp(26px,5.6vw,44px);line-height:1.28;letter-spacing:-.01em;font-weight:400;max-width:24ch}
+  h1 em{font-style:italic}
+  .sub{margin-top:36px;color:var(--dim);max-width:48ch;font-size:15px;line-height:1.9}
+  .by{margin-top:40px;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--dim)}
+  .by b{color:var(--ink);font-weight:400}
+  h2{margin:78px 0 34px;font-size:10px;letter-spacing:.42em;text-transform:uppercase;color:var(--dim)}
+  .piece{padding:30px 0;border-top:1px solid var(--hair)}
+  .piece:first-of-type{border-top:0;padding-top:0}
+  .piece .n{font-size:10px;letter-spacing:.3em;color:var(--gold)}
+  .piece h3{margin-top:14px;font-size:22px;font-weight:400;letter-spacing:-.005em;line-height:1.4}
+  .piece p{margin-top:14px;color:#4a4845;max-width:60ch;font-size:15px;line-height:1.9}
+  .piece .m{margin-top:18px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--dim)}
+  .figures{display:flex;gap:60px;flex-wrap:wrap;padding:34px 0;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+  .fig{min-width:120px}
+  .fig b{display:block;font-size:30px;font-weight:400;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+  .fig span{display:block;margin-top:10px;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--dim)}
+  .entry{margin-top:78px;padding:44px 40px;background:#fff;border:1px solid var(--hair)}
+  .entry .lbl{font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:var(--gold)}
+  .entry h3{margin-top:20px;font-size:24px;font-weight:400;font-style:italic;line-height:1.42;max-width:32ch}
+  .entry p{margin-top:18px;color:#4a4845;max-width:58ch;font-size:15px}
+  .entry a{display:inline-block;margin-top:26px;font-size:10px;letter-spacing:.3em;text-transform:uppercase;
+           color:var(--ink);text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:4px}
+  .entry a:hover{color:var(--gold)}
+  footer{margin-top:96px;padding-top:26px;border-top:1px solid var(--hair);display:flex;justify-content:space-between;
+         gap:16px;flex-wrap:wrap;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--dim)}
+  @media(max-width:640px){
+    .hero{padding:64px 0 56px}
+    h2{margin:56px 0 26px}
+    .figures{gap:34px}
+    .entry{padding:32px 24px}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="top">
+    <div class="brand">ExploreZone <em>·</em> lab·notebook</div>
+    <nav><a href="#">Home</a><a href="#">Work</a><a href="#">Notebook</a><a href="#">About</a></nav>
+  </div>
+
+  <section class="hero">
+    <p class="eyebrow">On-device AI · Android · from-scratch engineering</p>
+    <h1>I build AI systems that run <em>entirely</em> on the phone.</h1>
+    <p class="sub">Offline Android agents, on-device language models, and systems written from scratch — every claim measured on real hardware.</p>
+    <p class="by">By <b>Saeed</b> — author, owner &amp; publisher · ExploreZone</p>
+  </section>
+
+  <h2>Selected work</h2>
+
+  <article class="piece">
+    <p class="n">One</p>
+    <h3>Cosmo — offline Android agent</h3>
+    <p>Voice → decision → action with no network. The first execution model was rejected by device testing, so v2 is rebuilt around ordered FIND/DO layers with a mandatory trace.</p>
+    <p class="m">8 defects found in round one</p>
+  </article>
+
+  <article class="piece">
+    <p class="n">Two</p>
+    <h3>Anima — talking avatar from pure math</h3>
+    <p>Phonemizer, formant voice synthesis, viseme curves, a 3D rasterized face and a neural language model with hand-derived backpropagation — standard library only.</p>
+    <p class="m">Perplexity 2.6 vs 44.1 unigram</p>
+  </article>
+
+  <article class="piece">
+    <p class="n">Three</p>
+    <h3>MiniKeys — modular Android keyboard</h3>
+    <p>A keyboard assembled from reusable modules, with an OpenAI-compatible client and an Android-Keystore key vault.</p>
+    <p class="m">14/14 unit tests · APK 8,710,088 bytes</p>
+  </article>
+
+  <h2>Numbers</h2>
+  <div class="figures">
+    <div class="fig"><b>4.0e-08</b><span>Gradient check</span></div>
+    <div class="fig"><b>≤11.5%</b><span>Formant error</span></div>
+    <div class="fig"><b>129 / 0</b><span>Links / broken</span></div>
+  </div>
+
+  <div class="entry">
+    <p class="lbl">From the notebook</p>
+    <h3>The ARM64 aapt2 trap that eats Android builds on-device</h3>
+    <p>One Gradle property decides whether any on-device Android build can succeed — and the error message says “file not found”, which is why it costs people days.</p>
+    <a href="#">Read the entry</a>
+  </div>
+
+  <footer>
+    <span>© 2026 Saeed · ExploreZone</span>
+    <span>Design 10 — Minimal Luxury</span>
+  </footer>
+
+</div>
+</body>
+</html>
