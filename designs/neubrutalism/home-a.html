@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ExploreZone — Home (Neubrutalism A)</title>
+<link rel="stylesheet" href="../../assets/fonts.css">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--paper:#f4f1e8;--ink:#0a0a0a;--yellow:#ffe14d;--cyan:#7ee0ff;--pink:#ff9ec4;--lime:#b6ff6e;--white:#fff}
+  body{background:var(--paper);color:var(--ink);font-family:Montserrat,system-ui,sans-serif;font-size:15px;line-height:1.55}
+  .wrap{max-width:1060px;margin:0 auto;padding:20px 18px 70px}
+  .top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;
+       border:3px solid var(--ink);background:var(--yellow);padding:12px 14px;box-shadow:6px 6px 0 var(--ink)}
+  .brand{font-weight:900;font-size:15px;letter-spacing:-.02em;text-transform:uppercase}
+  .brand span{background:var(--ink);color:var(--yellow);padding:2px 7px;margin-left:6px}
+  nav{display:flex;gap:8px;flex-wrap:wrap}
+  nav a{font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:.04em;text-decoration:none;color:var(--ink);
+        border:2px solid var(--ink);background:var(--white);padding:6px 11px;box-shadow:3px 3px 0 var(--ink)}
+  nav a:hover{background:var(--cyan);transform:translate(1px,1px);box-shadow:2px 2px 0 var(--ink)}
+  nav a[aria-current]{background:var(--ink);color:var(--yellow)}
+  .hero{margin-top:34px;border:3px solid var(--ink);background:var(--white);padding:30px 22px;box-shadow:8px 8px 0 var(--ink);
+        position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;top:-46px;right:-46px;width:132px;height:132px;background:var(--pink);border:3px solid var(--ink);transform:rotate(18deg)}
+  .pill{display:inline-block;font-weight:900;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+        border:2px solid var(--ink);background:var(--lime);padding:5px 11px;box-shadow:3px 3px 0 var(--ink);margin-bottom:18px;position:relative;z-index:2}
+  h1{font-size:clamp(30px,8vw,58px);line-height:1;letter-spacing:-.04em;font-weight:900;max-width:19ch;position:relative;z-index:2}
+  .lede{margin-top:16px;max-width:56ch;font-weight:500;position:relative;z-index:2}
+  .by{margin-top:14px;font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:.06em;position:relative;z-index:2}
+  h2{display:inline-block;margin:46px 0 18px;font-size:20px;font-weight:900;text-transform:uppercase;letter-spacing:-.01em;
+     border:3px solid var(--ink);background:var(--cyan);padding:6px 13px;box-shadow:4px 4px 0 var(--ink);transform:rotate(-1.2deg)}
+  .grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(258px,1fr))}
+  .card{border:3px solid var(--ink);background:var(--white);padding:18px;box-shadow:6px 6px 0 var(--ink)}
+  .card h3{font-size:18px;font-weight:900;letter-spacing:-.02em;line-height:1.15}
+  .card p{margin-top:9px;font-weight:500;color:#2a2a26}
+  .card .m{margin-top:13px;font-weight:900;font-size:12.5px;text-transform:uppercase;border-top:2px dashed var(--ink);padding-top:10px}
+  .badges{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:11px}
+  .b{font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;border:2px solid var(--ink);padding:2px 8px}
+  .b.ok{background:var(--lime)}
+  .b.warn{background:var(--yellow)}
+  .b.info{background:var(--cyan)}
+  .work .card:nth-child(2){background:var(--yellow)}
+  .work .card:nth-child(5){background:var(--pink)}
+  .entries{list-style:none}
+  .entries li{border:3px solid var(--ink);background:var(--white);padding:14px 16px;box-shadow:5px 5px 0 var(--ink);margin-bottom:14px}
+  .entries a{color:var(--ink);text-decoration:none;font-weight:900;font-size:16px;letter-spacing:-.01em}
+  .entries a:hover{background:var(--yellow)}
+  .entries .d{display:block;margin-top:5px;font-size:13.5px;color:#3a3a34;font-weight:500}
+  .stats{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+  .stat{border:3px solid var(--ink);background:var(--white);padding:16px;box-shadow:5px 5px 0 var(--ink);text-align:center}
+  .stat:nth-child(2){background:var(--lime)}
+  .stat:nth-child(3){background:var(--cyan)}
+  .stat b{display:block;font-size:clamp(21px,5.6vw,30px);font-weight:900;letter-spacing:-.03em}
+  .stat span{display:block;margin-top:6px;font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.06em}
+  .cta{margin-top:44px;border:3px solid var(--ink);background:var(--ink);color:var(--white);padding:26px 22px;
+       display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;box-shadow:8px 8px 0 var(--pink)}
+  .cta h3{font-size:clamp(20px,4.4vw,30px);font-weight:900;text-transform:uppercase;letter-spacing:-.02em;max-width:24ch}
+  .cta a{font-weight:900;font-size:13px;text-transform:uppercase;text-decoration:none;color:var(--ink);background:var(--yellow);
+         border:3px solid var(--yellow);padding:11px 18px;box-shadow:4px 4px 0 var(--white)}
+  .cta a:hover{background:var(--white);border-color:var(--white)}
+  footer{margin-top:46px;border:3px solid var(--ink);background:var(--ink);color:var(--white);padding:14px 16px;
+         display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.06em}
+  footer a{color:var(--yellow)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top">
+    <div class="brand">ExploreZone<span>lab·notebook</span></div>
+    <nav>
+      <a href="home-a.html" aria-current="page">Home</a>
+      <a href="work.html">Work</a>
+      <a href="notebook.html">Notebook</a>
+      <a href="home-b.html">Blackout variant</a>
+    </nav>
+  </div>
+
+  <section class="hero">
+    <span class="pill">open notebook · runs without a network</span>
+    <h1>I build AI systems that run entirely on the phone.</h1>
+    <p class="lede">Offline Android agents, on-device language models, and systems written from scratch — every claim measured on real hardware.</p>
+    <p class="by">By Saeed — author, owner &amp; publisher · ExploreZone</p>
+  </section>
+
+  <h2>What I do</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>On-device AI systems</h3>
+      <p>Android agents that need no cloud: local LLM inference, offline speech input, accessibility-driven execution, and a decision layer that scores every candidate action.</p>
+      <p class="m">llama.cpp · MediaPipe · LiteRT · sherpa-onnx</p>
+    </div>
+    <div class="card">
+      <h3>From-scratch engineering</h3>
+      <p>When a library would hide the mechanism, I write the mechanism: neural networks with hand-derived backpropagation, speech synthesis, FFT, DTW, 3D rasterization — standard library only.</p>
+      <p class="m">Gradient check 4.0e-08</p>
+    </div>
+    <div class="card">
+      <h3>Build &amp; release</h3>
+      <p>A complete Android toolchain inside a Linux container on the phone itself: Gradle and AGP on ARM64, fork-based CI, signed APKs, tagged releases.</p>
+      <p class="m">9 shipped builds on one project</p>
+    </div>
+    <div class="card">
+      <h3>AI product testing — ExploreZone</h3>
+      <p>Human-in-the-loop testing for AI products: reproducible bug discovery, behaviour analysis, model and workflow comparison. The output is structured evidence.</p>
+      <p class="m">What was tested · what happened · how to reproduce</p>
+    </div>
+  </div>
+
+  <h2>Selected work</h2>
+  <div class="grid work">
+    <div class="card">
+      <div class="badges"><span class="b warn">rebuilding</span><span class="b info">android</span></div>
+      <h3>Cosmo — offline Android agent</h3>
+      <p>Voice → decision → action with no network. Device testing rejected the first execution model, so v2 is rebuilt around ordered FIND/DO layers with a mandatory trace.</p>
+      <p class="m">8 defects found in round one</p>
+    </div>
+    <div class="card">
+      <div class="badges"><span class="b ok">working</span><span class="b info">from scratch</span></div>
+      <h3>Anima — talking avatar from pure math</h3>
+      <p>Phonemizer, formant voice synthesis, viseme curves, a 3D rasterized face and a neural language model with hand-derived backpropagation.</p>
+      <p class="m">Perplexity 2.6 vs 44.1 unigram</p>
+    </div>
+    <div class="card">
+      <div class="badges"><span class="b ok">shipped</span><span class="b info">android</span></div>
+      <h3>MiniKeys — modular keyboard</h3>
+      <p>A keyboard assembled from reusable modules, with an OpenAI-compatible client and an Android-Keystore key vault.</p>
+      <p class="m">14/14 tests · APK 8,710,088 bytes</p>
+    </div>
+    <div class="card">
+      <div class="badges"><span class="b ok">shipped</span><span class="b info">from scratch</span></div>
+      <h3>LLM Lab — a tiny GPT, twice</h3>
+      <p>A decoder-only transformer with a hand-written backward pass, reimplemented in Kotlin inside an app that trains it live on screen.</p>
+      <p class="m">Kotlin vs NumPy: max |Δp| = 1.513e-07</p>
+    </div>
+    <div class="card">
+      <div class="badges"><span class="b warn">device-testing</span><span class="b info">vision</span></div>
+      <h3>EyePoint — eye-gaze pointer</h3>
+      <p>A phone-wide overlay pointer aimed with the eyes, rebuilt from scratch after four defects were traced upstream of the old smoothing filter.</p>
+      <p class="m">4 root causes documented</p>
+    </div>
+    <div class="card">
+      <div class="badges"><span class="b ok">verified</span><span class="b info">toolchain</span></div>
+      <h3>android-build-ship</h3>
+      <p>A written, versioned procedure for building, signing and shipping Android apps entirely on-device, with a project template.</p>
+      <p class="m">Reused across 6+ projects</p>
+    </div>
+  </div>
+
+  <h2>Latest notebook entries</h2>
+  <ul class="entries">
+    <li>
+      <a href="notebook.html">The ARM64 aapt2 trap that eats Android builds on-device</a>
+      <span class="d">One Gradle property decides whether any on-device Android build can succeed.</span>
+    </li>
+    <li>
+      <a href="notebook.html">Zero tokens from a perfectly good GGUF model</a>
+      <span class="d">A single boolean in the chat template made greedy decoding answer with an end-of-turn token.</span>
+    </li>
+    <li>
+      <a href="notebook.html">MediaPipe bundles never start with “PK”</a>
+      <span class="d">Measured byte offsets of real model bundles — and why a sensible guard rejects all of them.</span>
+    </li>
+    <li>
+      <a href="notebook.html">The voice-as-touch category is structurally empty</a>
+      <span class="d">~2,000 repos swept, 42 curated, 12 issue trackers mined for real failure evidence.</span>
+    </li>
+  </ul>
+
+  <h2>Numbers I can defend</h2>
+  <div class="stats">
+    <div class="stat"><b>4.0e-08</b><span>Gradient check</span></div>
+    <div class="stat"><b>≤11.5%</b><span>Formant error</span></div>
+    <div class="stat"><b>129 / 0</b><span>Links / broken</span></div>
+    <div class="stat"><b>3,579</b><span>Lines translated</span></div>
+  </div>
+
+  <div class="cta">
+    <h3>Everything is measured on the same phone it runs on.</h3>
+    <a href="work.html">See the work →</a>
+  </div>
+
+  <footer>
+    <span>© 2026 Saeed · ExploreZone — author, owner &amp; publisher</span>
+    <span>Design: Neubrutalism A</span>
+  </footer>
+
+</div>
+</body>
+</html>

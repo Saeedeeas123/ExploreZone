@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ExploreZone — Home (Memphis A)</title>
+<link rel="stylesheet" href="../../assets/fonts.css">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--bg:#fffaf0;--ink:#141414;--pink:#ff2d6f;--teal:#00b8a9;--yellow:#ffc93c;--blue:#3d5af1;--white:#fff}
+  body{background:var(--bg);color:var(--ink);font-family:Montserrat,system-ui,sans-serif;font-size:15px;line-height:1.55;overflow-x:hidden}
+  .wrap{max-width:1060px;margin:0 auto;padding:22px 18px 80px;position:relative}
+  .deco{position:absolute;z-index:0;pointer-events:none}
+  .d1{top:130px;right:6px;width:78px;height:78px;border-radius:50%;background:var(--teal);border:3px solid var(--ink)}
+  .d2{top:230px;right:104px;width:44px;height:44px;background:var(--pink);border:3px solid var(--ink);transform:rotate(20deg)}
+  .d3{top:308px;right:12px;width:0;height:0;border-left:30px solid transparent;border-right:30px solid transparent;border-bottom:52px solid var(--yellow)}
+  .d4{top:430px;right:34px;width:70px;height:22px;border:3px solid var(--ink);border-radius:999px;background:var(--blue)}
+  .d5{top:502px;right:118px;width:30px;height:30px;border-radius:50%;background:var(--yellow);border:3px solid var(--ink)}
+  .top{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;
+       border-bottom:4px solid var(--ink);padding-bottom:14px}
+  .brand{font-weight:900;font-size:16px;letter-spacing:-.02em;text-transform:uppercase}
+  .brand i{color:var(--pink);font-style:normal}
+  nav{display:flex;gap:8px;flex-wrap:wrap}
+  nav a{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--ink);
+        border:3px solid var(--ink);padding:7px 12px;background:var(--white);border-radius:999px}
+  nav a:nth-child(1){background:var(--yellow)}
+  nav a:nth-child(2){background:var(--teal)}
+  nav a:nth-child(3){background:var(--pink)}
+  nav a:nth-child(4){background:var(--blue);color:#fff}
+  nav a:hover{background:var(--ink);color:#fff}
+  nav a[aria-current]{background:var(--ink);color:#fff}
+  .hero{position:relative;z-index:2;margin-top:36px;background:var(--white);border:3px solid var(--ink);border-radius:22px;
+        padding:32px 24px;box-shadow:10px 10px 0 var(--teal)}
+  .pill{display:inline-block;font-size:11px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;
+        border:3px solid var(--ink);background:var(--yellow);padding:6px 13px;border-radius:999px}
+  h1{margin-top:20px;font-size:clamp(31px,8.2vw,60px);line-height:.96;letter-spacing:-.04em;font-weight:900;max-width:18ch}
+  h1 u{text-decoration:none;color:var(--pink);text-shadow:3px 3px 0 var(--teal)}
+  .lede{margin-top:20px;max-width:56ch;font-weight:500;color:#333}
+  .by{margin-top:14px;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#6b655b}
+  h2{position:relative;z-index:2;margin:50px 0 20px;display:inline-block;font-size:19px;font-weight:900;text-transform:uppercase;
+     letter-spacing:-.01em;border:3px solid var(--ink);background:var(--pink);color:#fff;padding:7px 15px;border-radius:999px;transform:rotate(-1.4deg)}
+  h2.t{background:var(--teal);color:#0c2b28}
+  h2.b{background:var(--blue);color:#fff}
+  .grid{position:relative;z-index:2;display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(258px,1fr))}
+  .card{background:var(--white);border:3px solid var(--ink);border-radius:16px;padding:19px}
+  .card:nth-child(1){box-shadow:8px 8px 0 var(--yellow)}
+  .card:nth-child(2){box-shadow:8px 8px 0 var(--teal)}
+  .card:nth-child(3){box-shadow:8px 8px 0 var(--pink)}
+  .card:nth-child(4){box-shadow:8px 8px 0 var(--blue)}
+  .card:nth-child(5){box-shadow:8px 8px 0 var(--yellow)}
+  .card:nth-child(6){box-shadow:8px 8px 0 var(--teal)}
+  .card h3{font-size:18px;font-weight:900;letter-spacing:-.02em;line-height:1.15}
+  .card p{margin-top:9px;color:#333;font-weight:500}
+  .card .m{margin-top:13px;padding-top:11px;border-top:3px dotted var(--ink);font-size:12.5px;font-weight:900;
+           letter-spacing:.04em;text-transform:uppercase;color:var(--pink)}
+  .badges{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:11px}
+  .b{font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;border:3px solid var(--ink);
+     padding:2px 9px;border-radius:999px;background:var(--white)}
+  .b.ok{background:var(--teal);color:#0c2b28}
+  .b.warn{background:var(--yellow)}
+  .entries{position:relative;z-index:2;list-style:none}
+  .entries li{background:var(--white);border:3px solid var(--ink);border-radius:16px;padding:15px 17px;margin-bottom:14px}
+  .entries li:nth-child(odd){box-shadow:6px 6px 0 var(--yellow)}
+  .entries li:nth-child(even){box-shadow:6px 6px 0 var(--teal)}
+  .entries a{color:var(--ink);text-decoration:none;font-weight:900;font-size:16px}
+  .entries a:hover{background:var(--yellow)}
+  .entries .d{display:block;margin-top:5px;font-size:13.5px;color:#3f3f3a;font-weight:500}
+  .stats{position:relative;z-index:2;display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+  .stat{border:3px solid var(--ink);border-radius:16px;padding:17px;text-align:center;background:var(--white)}
+  .stat:nth-child(1){box-shadow:6px 6px 0 var(--teal)}
+  .stat:nth-child(2){background:var(--yellow);box-shadow:6px 6px 0 var(--pink)}
+  .stat:nth-child(3){box-shadow:6px 6px 0 var(--blue)}
+  .stat:nth-child(4){box-shadow:6px 6px 0 var(--yellow)}
+  .stat b{display:block;font-size:clamp(21px,5.6vw,30px);font-weight:900;letter-spacing:-.03em}
+  .stat span{display:block;margin-top:7px;font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.06em}
+  .cta{position:relative;z-index:2;margin-top:48px;background:var(--ink);color:#fff;border:3px solid var(--ink);border-radius:22px;
+       padding:28px 24px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;box-shadow:10px 10px 0 var(--pink)}
+  .cta h3{font-size:clamp(20px,4.4vw,30px);font-weight:900;letter-spacing:-.02em;max-width:24ch}
+  .cta a{font-size:13px;font-weight:900;text-transform:uppercase;letter-spacing:.08em;text-decoration:none;color:var(--ink);
+         background:var(--yellow);border:3px solid var(--yellow);border-radius:999px;padding:12px 20px}
+  .cta a:hover{background:#fff;border-color:#fff}
+  footer{position:relative;z-index:2;margin-top:50px;border-top:4px solid var(--ink);padding-top:15px;display:flex;
+         justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:11px;font-weight:800;letter-spacing:.12em;
+         text-transform:uppercase;color:#6b655b}
+  @media(max-width:820px){.deco{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <span class="deco d1"></span><span class="deco d2"></span><span class="deco d3"></span>
+  <span class="deco d4"></span><span class="deco d5"></span>
+
+  <div class="top">
+    <div class="brand">Explore<i>Zone</i> · lab·notebook</div>
+    <nav>
+      <a href="home-a.html" aria-current="page">Home</a>
+      <a href="work.html">Work</a>
+      <a href="notebook.html">Notebook</a>
+      <a href="home-b.html">Night variant</a>
+    </nav>
+  </div>
+
+  <section class="hero">
+    <span class="pill">open notebook · no cloud · all measured</span>
+    <h1>I build AI systems that run <u>entirely on the phone</u>.</h1>
+    <p class="lede">Offline Android agents, on-device language models, and systems written from scratch — every claim measured on real hardware.</p>
+    <p class="by">By Saeed — author, owner &amp; publisher · ExploreZone</p>
+  </section>
+
+  <h2>What I do</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>On-device AI systems</h3>
+      <p>Android agents that need no cloud: local LLM inference, offline speech input, accessibility-driven execution, and a decision layer that scores every candidate action.</p>
+      <p class="m">llama.cpp · MediaPipe · sherpa-onnx</p>
+    </div>
+    <div class="card">
+      <h3>From-scratch engineering</h3>
+      <p>When a library would hide the mechanism, I write the mechanism: neural networks with hand-derived backpropagation, speech synthesis, FFT, DTW, 3D rasterization — standard library only.</p>
+      <p class="m">Gradient check 4.0e-08</p>
+    </div>
+    <div class="card">
+      <h3>Build &amp; release</h3>
+      <p>A complete Android toolchain inside a Linux container on the phone itself: Gradle and AGP on ARM64, fork-based CI, signed APKs, tagged releases.</p>
+      <p class="m">9 shipped builds on one project</p>
+    </div>
+    <div class="card">
+      <h3>AI product testing — ExploreZone</h3>
+      <p>Human-in-the-loop testing for AI products: reproducible bug discovery, behaviour analysis, model and workflow comparison. The output is structured evidence.</p>
+      <p class="m">What was tested · what happened · how to reproduce</p>
+    </div>
+  </div>
+
+  <h2 class="t">Selected work</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="badges"><span class="b warn">rebuilding</span><span class="b">android</span></div>
+      <h3>Cosmo — offline Android agent</h3>
+      <p>Voice → decision → action with no network. Device testing rejected the first execution model, so v2 is rebuilt around ordered FIND/DO layers with a mandatory trace.</p>
+      <p class="m">8 defects found in round one</p>
+    </div>
+    <div class="card">
+      <div class="badges"><span class="b ok">working</span><span class="b">from scratch</span></div>
+      <h3>Anima — talking avatar from pure math</h3>
+      <p>Phonemizer, formant voice synthesis, viseme curves, a 3D rasterized face and a neural language model with hand-derived backpropagation.</p>
+      <p class="m">Perplexity 2.6 vs 44.1 unigram</p>
+    </div>
+    <div class="card">
+      <div class="badges"><span class="b ok">shipped</span><span class="b">android</span></div>
+      <h3>MiniKeys — modular keyboard</h3>
+      <p>A keyboard assembled from reusable modules, with an OpenAI-compatible client and an Android-Keystore key vault.</p>
+      <p class="m">14/14 tests · APK 8,710,088 bytes</p>
+    </div>
+    <div class="card">
+      <div class="badges"><span class="b ok">shipped</span><span class="b">from scratch</span></div>
+      <h3>LLM Lab — a tiny GPT, twice</h3>
+      <p>A decoder-only transformer with a hand-written backward pass, reimplemented in Kotlin inside an app that trains it live on screen.</p>
+      <p class="m">Kotlin vs NumPy: max |Δp| = 1.513e-07</p>
+    </div>
+    <div class="card">
+      <div class="badges"><span class="b warn">device-testing</span><span class="b">vision</span></div>
+      <h3>EyePoint — eye-gaze pointer</h3>
+      <p>A phone-wide overlay pointer aimed with the eyes, rebuilt from scratch after four defects were traced upstream of the old smoothing filter.</p>
+      <p class="m">4 root causes documented</p>
+    </div>
+    <div class="card">
+      <div class="badges"><span class="b ok">verified</span><span class="b">toolchain</span></div>
+      <h3>android-build-ship</h3>
+      <p>A written, versioned procedure for building, signing and shipping Android apps entirely on-device, with a project template.</p>
+      <p class="m">Reused across 6+ projects</p>
+    </div>
+  </div>
+
+  <h2 class="b">Latest notebook entries</h2>
+  <ul class="entries">
+    <li>
+      <a href="notebook.html">The ARM64 aapt2 trap that eats Android builds on-device</a>
+      <span class="d">One Gradle property decides whether any on-device Android build can succeed.</span>
+    </li>
+    <li>
+      <a href="notebook.html">Zero tokens from a perfectly good GGUF model</a>
+      <span class="d">A single boolean in the chat template made greedy decoding answer with an end-of-turn token.</span>
+    </li>
+    <li>
+      <a href="notebook.html">MediaPipe bundles never start with “PK”</a>
+      <span class="d">Measured byte offsets of real model bundles — and why a sensible guard rejects all of them.</span>
+    </li>
+    <li>
+      <a href="notebook.html">The voice-as-touch category is structurally empty</a>
+      <span class="d">~2,000 repos swept, 42 curated, 12 issue trackers mined for real failure evidence.</span>
+    </li>
+  </ul>
+
+  <h2>Numbers I can defend</h2>
+  <div class="stats">
+    <div class="stat"><b>4.0e-08</b><span>Gradient check</span></div>
+    <div class="stat"><b>≤11.5%</b><span>Formant error</span></div>
+    <div class="stat"><b>129 / 0</b><span>Links / broken</span></div>
+    <div class="stat"><b>3,579</b><span>Lines translated</span></div>
+  </div>
+
+  <div class="cta">
+    <h3>Everything is measured on the same phone it runs on.</h3>
+    <a href="work.html">See the work →</a>
+  </div>
+
+  <footer>
+    <span>© 2026 Saeed · ExploreZone — author, owner &amp; publisher</span>
+    <span>Design: Memphis A</span>
+  </footer>
+
+</div>
+</body>
+</html>

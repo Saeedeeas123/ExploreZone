@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Work — ExploreZone (Neubrutalism A)</title>
+<link rel="stylesheet" href="../../assets/fonts.css">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--paper:#f4f1e8;--ink:#0a0a0a;--yellow:#ffe14d;--cyan:#7ee0ff;--pink:#ff9ec4;--lime:#b6ff6e;--white:#fff}
+  body{background:var(--paper);color:var(--ink);font-family:Montserrat,system-ui,sans-serif;font-size:15px;line-height:1.55}
+  .wrap{max-width:1060px;margin:0 auto;padding:20px 18px 70px}
+  .top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;
+       border:3px solid var(--ink);background:var(--yellow);padding:12px 14px;box-shadow:6px 6px 0 var(--ink)}
+  .brand{font-weight:900;font-size:15px;letter-spacing:-.02em;text-transform:uppercase}
+  .brand span{background:var(--ink);color:var(--yellow);padding:2px 7px;margin-left:6px}
+  nav{display:flex;gap:8px;flex-wrap:wrap}
+  nav a{font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:.04em;text-decoration:none;color:var(--ink);
+        border:2px solid var(--ink);background:var(--white);padding:6px 11px;box-shadow:3px 3px 0 var(--ink)}
+  nav a:hover{background:var(--cyan);transform:translate(1px,1px);box-shadow:2px 2px 0 var(--ink)}
+  nav a[aria-current]{background:var(--ink);color:var(--yellow)}
+  .hero{margin-top:34px;border:3px solid var(--ink);background:var(--white);padding:28px 22px;box-shadow:8px 8px 0 var(--ink)}
+  .pill{display:inline-block;font-weight:900;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+        border:2px solid var(--ink);background:var(--pink);padding:5px 11px;box-shadow:3px 3px 0 var(--ink);margin-bottom:16px}
+  h1{font-size:clamp(30px,8vw,56px);line-height:1;letter-spacing:-.04em;font-weight:900;text-transform:uppercase}
+  .lede{margin-top:14px;max-width:60ch;font-weight:500}
+  h2{display:inline-block;margin:46px 0 18px;font-size:20px;font-weight:900;text-transform:uppercase;letter-spacing:-.01em;
+     border:3px solid var(--ink);background:var(--cyan);padding:6px 13px;box-shadow:4px 4px 0 var(--ink);transform:rotate(-1.2deg)}
+  h2.pink{background:var(--pink)}
+  h2.lime{background:var(--lime)}
+  .grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(258px,1fr))}
+  .card{border:3px solid var(--ink);background:var(--white);padding:18px;box-shadow:6px 6px 0 var(--ink)}
+  .card h3{font-size:18px;font-weight:900;letter-spacing:-.02em;line-height:1.15}
+  .card p{margin-top:9px;font-weight:500;color:#2a2a26}
+  .card .m{margin-top:13px;font-weight:900;font-size:12.5px;text-transform:uppercase;border-top:2px dashed var(--ink);padding-top:10px}
+  .badges{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:11px}
+  .b{font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;border:2px solid var(--ink);padding:2px 8px}
+  .b.ok{background:var(--lime)}
+  .b.warn{background:var(--yellow)}
+  .b.info{background:var(--cyan)}
+  .grid .card:nth-child(3n+2){background:var(--yellow)}
+  .tablewrap{border:3px solid var(--ink);background:var(--white);box-shadow:6px 6px 0 var(--ink);overflow-x:auto}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th{background:var(--ink);color:var(--yellow);text-align:left;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:10px 12px}
+  td{padding:12px;border-top:2px solid var(--ink);vertical-align:top;font-weight:500}
+  td:first-child{font-weight:900;width:32%}
+  .venture{border:3px solid var(--ink);background:var(--lime);padding:22px;box-shadow:8px 8px 0 var(--ink);margin-top:6px}
+  .venture h3{font-size:20px;font-weight:900;text-transform:uppercase;letter-spacing:-.01em}
+  .venture p{margin-top:10px;max-width:70ch;font-weight:500}
+  .venture .m{margin-top:12px;font-weight:900;font-size:12.5px;text-transform:uppercase;border-top:2px dashed var(--ink);padding-top:10px}
+  footer{margin-top:46px;border:3px solid var(--ink);background:var(--ink);color:var(--white);padding:14px 16px;
+         display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.06em}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top">
+    <div class="brand">ExploreZone<span>lab·notebook</span></div>
+    <nav>
+      <a href="home-a.html">Home</a>
+      <a href="work.html" aria-current="page">Work</a>
+      <a href="notebook.html">Notebook</a>
+      <a href="home-b.html">Blackout variant</a>
+    </nav>
+  </div>
+
+  <section class="hero">
+    <span class="pill">inventory · honest status labels</span>
+    <h1>Work</h1>
+    <p class="lede">Everything here was built, tested and broken on the same Android phone. Labels stay unflattering: <b>shipped</b> means it produced an artifact that ran, <b>rebuilding</b> means device testing rejected the design, and <b>research</b> means the output was knowledge, not code.</p>
+  </section>
+
+  <h2>Active</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="badges"><span class="b warn">rebuilding</span><span class="b info">android</span></div>
+      <h3>Cosmo — offline Android agent</h3>
+      <p>An agent that takes a spoken order and executes it with no network. Device testing proved the speech front-end and one execution layer, then rejected the execution model itself. v2 is rebuilt around ordered FIND/DO layers with a mandatory per-layer trace.</p>
+      <p class="m">8 defects found in round one</p>
+    </div>
+    <div class="card">
+      <div class="badges"><span class="b warn">device-testing</span><span class="b info">vision</span></div>
+      <h3>EyePoint — eye-gaze pointer</h3>
+      <p>A full-screen overlay pointer aimed with the eyes, rebuilt as a fresh fork once the predecessor's jitter was traced to four defects that all sat upstream of its smoothing filter.</p>
+      <p class="m">4 root causes documented · v0.1.1 shipped</p>
+    </div>
+    <div class="card">
+      <div class="badges"><span class="b warn">device-testing</span><span class="b info">audio</span></div>
+      <h3>LibreCuts BeatLab — instrument detector</h3>
+      <p>An instrument (not merely beat) detector added to an open-source Android editor: every played moment per instrument, per beat, on a multi-timeline you can edit against.</p>
+      <p class="m">Base chosen from a 10-project landscape</p>
+    </div>
+  </div>
+
+  <h2 class="lime">Shipped &amp; verified</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="badges"><span class="b ok">working</span><span class="b info">from scratch</span></div>
+      <h3>Anima — talking avatar</h3>
+      <p>A model of a human written from the ground up with no third-party libraries: phonemizer, formant voice synthesis, prosody, viseme curves, a 3D rasterized face, a neural language model with hand-derived backpropagation, and ears that learn from the avatar's own voice.</p>
+      <p class="m">Perplexity 2.6 vs 44.1 · gradient check 4.0e-08 · mirror symmetry 0.000000 mm</p>
+    </div>
+    <div class="card">
+      <div class="badges"><span class="b ok">shipped</span><span class="b info">android</span></div>
+      <h3>MiniKeys — modular keyboard</h3>
+      <p>A keyboard assembled from reusable Gradle modules, including an OpenAI-compatible cloud client and an Android-Keystore key vault. An offline-inference experiment was removed after one engine crashed with no evidence to investigate.</p>
+      <p class="m">APK 8,710,088 bytes · 14/14 tests · zero native libraries</p>
+    </div>
+    <div class="card">
+      <div class="badges"><span class="b ok">shipped</span><span class="b info">from scratch</span></div>
+      <h3>LLM Lab — a tiny GPT, twice</h3>
+      <p>A decoder-only transformer in pure NumPy with every gradient written by hand and checked numerically, plus an Android app that reimplements the same architecture in Kotlin and trains it live on screen.</p>
+      <p class="m">Kotlin vs NumPy: max |Δp| = 1.513e-07</p>
+    </div>
+    <div class="card">
+      <div class="badges"><span class="b ok">shipped</span><span class="b info">android</span></div>
+      <h3>Air Mouse — hand-tracking cursor</h3>
+      <p>A camera-driven cursor over all apps: palm centre tracked from the front camera, twelve pose gestures bound to actions through an accessibility service.</p>
+      <p class="m">9 builds · tag history v0.1.0 → v0.4.1</p>
+    </div>
+    <div class="card">
+      <div class="badges"><span class="b ok">verified</span><span class="b info">localization</span></div>
+      <h3>Operit2 — full English localization</h3>
+      <p>File-by-file, line-by-line conversion of a large Flutter + Rust application, with a machine-checked audit gate verifying every line against its source.</p>
+      <p class="m">3,579 / 4,826 lines (74.2%) · audit 0 flagged of 3,000</p>
+    </div>
+    <div class="card">
+      <div class="badges"><span class="b ok">verified</span><span class="b info">toolchain</span></div>
+      <h3>android-build-ship</h3>
+      <p>A written, versioned procedure plus a project template for building, signing and shipping Android apps entirely on-device — dogfooded on itself, then reused across projects.</p>
+      <p class="m">Reused across 6+ projects</p>
+    </div>
+  </div>
+
+  <h2>Infrastructure &amp; tooling</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="badges"><span class="b ok">verified</span><span class="b info">modules</span></div>
+      <h3>Premade modules</h3>
+      <p>Reusable Android modules extracted from finished work, each with a verified version and its own failure notes.</p>
+      <p class="m">3 modules versioned and deposited</p>
+    </div>
+    <div class="card">
+      <div class="badges"><span class="b ok">verified</span><span class="b info">ci</span></div>
+      <h3>Fork-based CI pipelines</h3>
+      <p>Building large upstream projects through forked GitHub Actions workflows, patched so a signed APK is produced with no repository secrets — plus root-causing failures from raw run logs.</p>
+      <p class="m">Root-caused an unreachable host inside GitHub runners (5/5 retries identical ⇒ not a flake)</p>
+    </div>
+    <div class="card">
+      <div class="badges"><span class="b ok">verified</span><span class="b info">automation</span></div>
+      <h3>Agent &amp; automation skills</h3>
+      <p>Authored and deployed operating procedures that make agent work reproducible: a pre-execution project architect with approval gates, a device UI-automation recipe, an Android build skill, and a live Linux session with a viewer.</p>
+      <p class="m">4 skills authored, each tested on a real task</p>
+    </div>
+    <div class="card">
+      <div class="badges"><span class="b info">system</span></div>
+      <h3>Journal &amp; memory system</h3>
+      <p>A two-phase journal with verbatim capture and a structured nightly form, backed by a memory library with dual-write backup, index and protocol.</p>
+      <p class="m">Running continuously since 2026-08</p>
+    </div>
+  </div>
+
+  <h2 class="pink">Research outputs</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="badges"><span class="b info">landscape</span></div>
+      <h3>Voice-as-touch — category landscape</h3>
+      <p>A systematic sweep to answer one question: does a voice replacement for touch primitives already exist? Answer: no. The ecosystem converged on one-shot agents; the primitive layer exists only as abandoned single-author repos.</p>
+      <p class="m">~2,000 repos swept → 42 curated → 12 issue trackers mined</p>
+    </div>
+    <div class="card">
+      <div class="badges"><span class="b info">prior art</span></div>
+      <h3>On-device build tooling — prior art</h3>
+      <p>Established what already exists for building Android apps on Android, and why the maintained successor to the archived pioneer is a GUI IDE rather than something an agent can drive from a CLI.</p>
+      <p class="m">Archived vs maintained status verified directly</p>
+    </div>
+    <div class="card">
+      <div class="badges"><span class="b info">method</span></div>
+      <h3>This notebook — GitHub as a lab notebook</h3>
+      <p>An honest assessment of using a version-controlled public repository as a scientific notebook: what it provides (timestamped provenance, citability) and what the adoption data says about expecting an audience.</p>
+      <p class="m">Primary sources checked</p>
+    </div>
+  </div>
+
+  <h2>Deliberately stopped</h2>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Project</th><th>Why it stopped</th><th>What it left behind</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Offline LLM engines in MiniKeys</td>
+          <td>One engine crashed the app with no crash file, no tombstone and no kill record — unfalsifiable, so not worth chasing</td>
+          <td>Two real upstream bugs documented, plus a technique for debugging native failures</td>
+        </tr>
+        <tr>
+          <td>Cosmo v1 execution model</td>
+          <td>Device testing showed loops and wrong target selection — the design, not the code, was wrong</td>
+          <td>The layered FIND/DO architecture now used for v2</td>
+        </tr>
+        <tr>
+          <td>Air Mouse eye mode</td>
+          <td>Horizontal-only tracking with heavy jitter, caused by four identifiable defects</td>
+          <td>Became EyePoint, rebuilt from a clean pipeline</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Venture</h2>
+  <div class="venture">
+    <h3>ExploreZone — human-in-the-loop testing for AI products</h3>
+    <p>Three services, deliberately narrow: human-in-the-loop testing, product testing with reproducible bug discovery and behaviour analysis, and model/workflow comparison under defined scenarios. Explicitly <b>not</b> security auditing, penetration testing, compliance consulting, or generic “AI consulting”.</p>
+    <p class="m">Standard output: what was tested · what happened · why it matters · how to reproduce it</p>
+  </div>
+
+  <footer>
+    <span>© 2026 Saeed · ExploreZone — author, owner &amp; publisher</span>
+    <span>Design: Neubrutalism A</span>
+  </footer>
+
+</div>
+</body>
+</html>

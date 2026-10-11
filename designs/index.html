@@ -3,235 +3,146 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Design Lab — 10 graphic directions</title>
-<meta name="description" content="Ten completely different graphic treatments of the same page, for choosing a visual direction.">
+<title>Design lab — 2 directions, full site skeleton</title>
+<meta name="description" content="The complete site skeleton built in two design languages — neubrutalism and memphis — so the choice can be made on real pages.">
+<link rel="stylesheet" href="../assets/fonts.css">
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
-  body{background:#111318;color:#e9eaee;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-       font-size:15px;line-height:1.6;padding:22px 16px 70px}
-  .wrap{max-width:900px;margin:0 auto}
-  h1{font-size:clamp(22px,5.4vw,32px);letter-spacing:-.02em;font-weight:650}
-  .lede{color:#a2a7b3;margin-top:10px;max-width:62ch}
-  .rule{border-top:1px solid #262a33;margin:22px 0 6px}
-  .item{display:flex;gap:14px;align-items:flex-start;padding:16px 0;border-bottom:1px solid #1e222a;text-decoration:none;color:inherit}
-  .item:hover{background:#171b22}
-  .n{flex:0 0 34px;font-variant-numeric:tabular-nums;color:#6f7683;font-size:13px;padding-top:3px}
-  .body{flex:1}
-  .name{font-weight:600;letter-spacing:-.01em}
-  .name .arrow{color:#5b8cff}
-  .desc{color:#a2a7b3;font-size:13.5px;margin-top:4px}
-  .swatch{display:flex;gap:4px;margin-top:8px}
-  .sw{width:15px;height:15px;border-radius:3px;border:1px solid rgba(255,255,255,.14)}
-  .rnd{margin:34px 0 6px;font-size:12px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:#8d93a0}
-  .rnd b{color:#e9eaee;font-weight:700}
-  .keeper{display:inline-block;margin-left:8px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-          color:#0a0a0a;background:#ffe14d;padding:2px 8px;border-radius:3px;vertical-align:1px}
-  .foot{margin-top:26px;color:#6f7683;font-size:13px}
-  .foot b{color:#c9cdd6;font-weight:600}
-  .back{display:inline-block;margin-top:22px;color:#5b8cff;text-decoration:none;font-size:13px}
+  :root{--bg:#111318;--panel:#171b22;--ink:#e9eaee;--dim:#a2a7b3;--line:#262a33;--blue:#5b8cff;--acid:#d4ff00;--mag:#ff2d6f}
+  body{background:var(--bg);color:var(--ink);font-family:Montserrat,system-ui,sans-serif;font-size:15px;line-height:1.6;padding:24px 16px 80px}
+  .wrap{max-width:960px;margin:0 auto}
+  h1{font-size:clamp(23px,5.6vw,34px);letter-spacing:-.03em;font-weight:900;text-transform:uppercase}
+  .lede{color:var(--dim);margin-top:12px;max-width:64ch}
+  .lede b{color:var(--ink)}
+  .warn{margin-top:20px;border-left:5px solid var(--acid);background:var(--panel);padding:14px 16px;color:var(--dim);font-size:13.5px}
+  .warn b{color:var(--acid)}
+  .family{margin-top:34px;border:3px solid var(--line);border-radius:16px;overflow:hidden;background:var(--panel)}
+  .family .head{padding:18px 20px;border-bottom:3px solid var(--line);display:flex;justify-content:space-between;
+                align-items:baseline;gap:12px;flex-wrap:wrap}
+  .family h2{font-size:20px;font-weight:900;letter-spacing:-.02em;text-transform:uppercase}
+  .family .tag{font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+  .sw{display:flex;gap:5px;margin-top:10px}
+  .sw i{width:16px;height:16px;border-radius:4px;display:block;border:1px solid rgba(255,255,255,.18)}
+  .links{display:grid;gap:0}
+  .links a{display:flex;gap:14px;align-items:baseline;padding:15px 20px;border-bottom:1px solid var(--line);
+           text-decoration:none;color:inherit}
+  .links a:last-child{border-bottom:0}
+  .links a:hover{background:#1e232c}
+  .links .k{flex:0 0 96px;font-size:10.5px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:var(--blue)}
+  .links .t{font-weight:800;font-size:15.5px;letter-spacing:-.01em}
+  .links .d{display:block;color:var(--dim);font-size:13px;font-weight:500;margin-top:3px}
+  .nb .links .k{color:var(--acid)}
+  .mp .links .k{color:var(--mag)}
+  .foot{margin-top:34px;border-top:3px solid var(--line);padding-top:18px;color:var(--dim);font-size:13.5px}
+  .foot b{color:var(--ink)}
+  .back{display:inline-block;margin-top:22px;color:var(--blue);text-decoration:none;font-size:13.5px;font-weight:700}
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <h1>Design lab — 10 graphic directions</h1>
+  <h1>Two directions — the whole site, twice</h1>
   <p class="lede">
-    Ten completely different visual treatments. <b>Every page carries exactly the same content</b> — same headline,
-    same three projects, same numbers, same notebook teaser. So any difference you feel is design, not content.
+    You picked <b>neubrutalism</b> and <b>memphis</b>. Everything else is gone. What you have now is not single demo
+    pages but the <b>full site skeleton in both languages</b> — the same real content (Home, Work, Notebook, plus a
+    featured notebook entry rendered inside the Notebook page) so you can compare like for like and decide.
   </p>
 
-  <div class="rule"></div>
-  <p class="rnd">Round 1 — <b>ten directions</b></p>
+  <div class="warn">
+    <b>Note:</b> the other 18 designs were deleted from the folder as you asked. Nothing is lost — every one of them
+    is still recoverable from the repository's git history if you ever want one back.
+  </div>
 
-  <a class="item" href="design-01-swiss.html">
-    <span class="n">01</span>
-    <span class="body">
-      <span class="name">Swiss / International Typographic <span class="arrow">→</span></span>
-      <span class="desc">Strict grid, hairline rules, huge Helvetica, one red accent. Nothing decorative — pure information hierarchy. Reads as serious and institutional.</span>
-      <span class="swatch"><i class="sw" style="background:#fff"></i><i class="sw" style="background:#111"></i><i class="sw" style="background:#e2231a"></i></span>
-    </span>
-  </a>
+  <div class="family nb">
+    <div class="head">
+      <div>
+        <h2>Neubrutalism</h2>
+        <div class="sw">
+          <i style="background:#f4f1e8"></i><i style="background:#0a0a0a"></i><i style="background:#ffe14d"></i>
+          <i style="background:#7ee0ff"></i><i style="background:#ff9ec4"></i><i style="background:#b6ff6e"></i>
+        </div>
+      </div>
+      <span class="tag">thick borders · hard offset shadows · flat loud colour</span>
+    </div>
+    <div class="links">
+      <a href="neubrutalism/home-a.html">
+        <span class="k">Home · A</span>
+        <span><span class="t">Classic — warm paper, yellow header, offset shadows</span>
+        <span class="d">The flavour you reacted to. Rotated section labels, chunky pills, cards with 6–8 px hard shadows.</span></span>
+      </a>
+      <a href="neubrutalism/home-b.html">
+        <span class="k">Home · B</span>
+        <span><span class="t">Blackout — near-black canvas, acid green + magenta</span>
+        <span class="d">Same language, harder contrast, no rotation, a scrolling ticker bar and outlined numerals. A more severe version of the same idea.</span></span>
+      </a>
+      <a href="neubrutalism/work.html">
+        <span class="k">Work</span>
+        <span><span class="t">Full project inventory</span>
+        <span class="d">Active · shipped &amp; verified · infrastructure · research · a “deliberately stopped” table · the venture block.</span></span>
+      </a>
+      <a href="neubrutalism/notebook.html">
+        <span class="k">Notebook</span>
+        <span><span class="t">Entry index + one full article</span>
+        <span class="d">The reading treatment matters most here: headings, a code block, a pull quote and an honest-limits box.</span></span>
+      </a>
+      <a href="design-04-neubrutalism.html">
+        <span class="k">Reference</span>
+        <span><span class="t">The original single page you picked</span>
+        <span class="d">Kept untouched — the first page that made you say “I fell in love with this”.</span></span>
+      </a>
+    </div>
+  </div>
 
-  <a class="item" href="design-02-terminal.html">
-    <span class="n">02</span>
-    <span class="body">
-      <span class="name">Terminal / CRT <span class="arrow">→</span></span>
-      <span class="desc">Phosphor green on black, scanlines, ASCII boxes, blinking cursor, real shell prompts. Signals “engineer” instantly — and unapologetically.</span>
-      <span class="swatch"><i class="sw" style="background:#050806"></i><i class="sw" style="background:#3cff7a"></i><i class="sw" style="background:#1d8a45"></i></span>
-    </span>
-  </a>
-
-  <a class="item" href="design-03-editorial.html">
-    <span class="n">03</span>
-    <span class="body">
-      <span class="name">Editorial / Magazine <span class="arrow">→</span></span>
-      <span class="desc">Serif type, masthead, drop cap, two-column text, pull quote, cream paper. Treats the work as writing to be read — best if the notebook is the main product.</span>
-      <span class="swatch"><i class="sw" style="background:#fdfcf8"></i><i class="sw" style="background:#1c1a17"></i><i class="sw" style="background:#8c2f16"></i></span>
-    </span>
-  </a>
-
-  <a class="item" href="design-04-neubrutalism.html">
-    <span class="n">04</span>
-    <span class="body">
-      <span class="name">Neubrutalism <span class="arrow">→</span></span><span class="keeper">your pick</span>
-      <span class="desc">Thick black borders, hard offset shadows, loud flat colour, tilted section labels. Confident and memorable; risks reading as playful over serious.</span>
-      <span class="swatch"><i class="sw" style="background:#ffe14d"></i><i class="sw" style="background:#7ee0ff"></i><i class="sw" style="background:#ff9ec4"></i><i class="sw" style="background:#0a0a0a"></i></span>
-    </span>
-  </a>
-
-  <a class="item" href="design-05-glass.html">
-    <span class="n">05</span>
-    <span class="body">
-      <span class="name">Glass / Aurora <span class="arrow">→</span></span>
-      <span class="desc">Frosted translucent cards floating over blurred colour blobs, gradient text, soft depth. Modern product-site feel; heavier to render on old phones.</span>
-      <span class="swatch"><i class="sw" style="background:#070a18"></i><i class="sw" style="background:#5b6cff"></i><i class="sw" style="background:#00d5c0"></i><i class="sw" style="background:#c04bff"></i></span>
-    </span>
-  </a>
-
-  <a class="item" href="design-06-bento.html">
-    <span class="n">06</span>
-    <span class="body">
-      <span class="name">Bento Grid <span class="arrow">→</span></span>
-      <span class="desc">Modular tiles of unequal size, big radii, soft shadows, numbers as hero tiles. Very legible on a phone and easy to extend with new blocks later.</span>
-      <span class="swatch"><i class="sw" style="background:#f0f0f3"></i><i class="sw" style="background:#fff"></i><i class="sw" style="background:#0b63f6"></i><i class="sw" style="background:#0b0b0d"></i></span>
-    </span>
-  </a>
-
-  <a class="item" href="design-07-blueprint.html">
-    <span class="n">07</span>
-    <span class="body">
-      <span class="name">Blueprint / Technical Drawing <span class="arrow">→</span></span>
-      <span class="desc">Gridded drafting paper, cyan linework, dashed part outlines, dimension rules, a real title block with sheet and revision. Makes engineering the brand.</span>
-      <span class="swatch"><i class="sw" style="background:#04203a"></i><i class="sw" style="background:#5fd0ff"></i><i class="sw" style="background:#ffd166"></i></span>
-    </span>
-  </a>
-
-  <a class="item" href="design-08-paper.html">
-    <span class="n">08</span>
-    <span class="body">
-      <span class="name">Paper Lab Notebook <span class="arrow">→</span></span>
-      <span class="desc">Ruled paper, red margin, taped corners, index cards, a rotated “verified” stamp. The most literal reading of “open lab notebook”.</span>
-      <span class="swatch"><i class="sw" style="background:#f7f2e4"></i><i class="sw" style="background:#26303a"></i><i class="sw" style="background:#c0392b"></i><i class="sw" style="background:#2c5f8a"></i></span>
-    </span>
-  </a>
-
-  <a class="item" href="design-09-cyberpunk.html">
-    <span class="n">09</span>
-    <span class="body">
-      <span class="name">Cyberpunk HUD <span class="arrow">→</span></span>
-      <span class="desc">Neon magenta and cyan on near-black, clipped corners, glitch-shadowed headings, telemetry readouts. Maximum energy; the loudest of the ten.</span>
-      <span class="swatch"><i class="sw" style="background:#08060f"></i><i class="sw" style="background:#00f0ff"></i><i class="sw" style="background:#ff2d95"></i><i class="sw" style="background:#b6ff00"></i></span>
-    </span>
-  </a>
-
-  <a class="item" href="design-10-minimal-luxury.html">
-    <span class="n">10</span>
-    <span class="body">
-      <span class="name">Minimal Luxury <span class="arrow">→</span></span>
-      <span class="desc">Vast whitespace, tiny letterspaced capitals, hairline rules, a single gold accent, serif statement type. The most “expensive” and the most restrained.</span>
-      <span class="swatch"><i class="sw" style="background:#faf9f7"></i><i class="sw" style="background:#141414"></i><i class="sw" style="background:#a9853f"></i></span>
-    </span>
-  </a>
-
-  <p class="rnd">Round 2 — <b>ten more, tuned to your taste</b> · same content, different structural idea each</p>
-
-  <a class="item" href="design-11-poster-type.html">
-    <span class="n">11</span>
-    <span class="body">
-      <span class="name">Poster / Type-Driven <span class="arrow">→</span></span>
-      <span class="desc">Typography <em>is</em> the layout. Massive uppercase headline, outlined numerals you can see through, one electric blue accent, no boxes or borders at all — only rules and scale.</span>
-      <span class="swatch"><i class="sw" style="background:#fff"></i><i class="sw" style="background:#0a0a0a"></i><i class="sw" style="background:#1b3bff"></i></span>
-    </span>
-  </a>
-
-  <a class="item" href="design-12-riso.html">
-    <span class="n">12</span>
-    <span class="body">
-      <span class="name">Riso Print / Overprint <span class="arrow">→</span></span>
-      <span class="desc">Two spot inks on cream paper, a halftone dot field, and deliberate misregistration — every heading casts a second-ink shadow, as if the plates slipped. Screen-print energy.</span>
-      <span class="swatch"><i class="sw" style="background:#f2ecdd"></i><i class="sw" style="background:#ff5a1f"></i><i class="sw" style="background:#1b34c8"></i></span>
-    </span>
-  </a>
-
-  <a class="item" href="design-13-constructivist.html">
-    <span class="n">13</span>
-    <span class="body">
-      <span class="name">Constructivist <span class="arrow">→</span></span>
-      <span class="desc">A diagonal red band cuts the page. Heavy black bars, an arrow, a rotated tagline, numerals in red — political-poster geometry. Loud and disciplined at once.</span>
-      <span class="swatch"><i class="sw" style="background:#efe9dc"></i><i class="sw" style="background:#d31f1f"></i><i class="sw" style="background:#141414"></i></span>
-    </span>
-  </a>
-
-  <a class="item" href="design-14-sticker.html">
-    <span class="n">14</span>
-    <span class="body">
-      <span class="name">Sticker Bomb / Zine <span class="arrow">→</span></span>
-      <span class="desc">Every block is a die-cut sticker: white edge, black outline, its own tilt, one acid colour. Tape, dots and a marker feel — chaotic on top of a strict grid underneath.</span>
-      <span class="swatch"><i class="sw" style="background:#f3f2ee"></i><i class="sw" style="background:#c8f24a"></i><i class="sw" style="background:#ff4d94"></i><i class="sw" style="background:#3ec6ff"></i></span>
-    </span>
-  </a>
-
-  <a class="item" href="design-15-arcade.html">
-    <span class="n">15</span>
-    <span class="body">
-      <span class="name">Arcade / 8-bit <span class="arrow">→</span></span>
-      <span class="desc">Chunky bevelled panels with inset light and shade, a dotted pixel grid, a credits HUD, and metrics presented as high scores. Playful, but every edge is deliberate.</span>
-      <span class="swatch"><i class="sw" style="background:#0a0f2b"></i><i class="sw" style="background:#ffd400"></i><i class="sw" style="background:#00e5ff"></i><i class="sw" style="background:#ff2e88"></i></span>
-    </span>
-  </a>
-
-  <a class="item" href="design-16-data-poster.html">
-    <span class="n">16</span>
-    <span class="body">
-      <span class="name">Data Poster / Telemetry <span class="arrow">→</span></span>
-      <span class="desc">A black masthead, a strip of spec plates, tabular rows, and numbers at poster scale with tabular figures. Dense and factual — the design of a spec sheet, not a brochure.</span>
-      <span class="swatch"><i class="sw" style="background:#fff"></i><i class="sw" style="background:#000"></i><i class="sw" style="background:#ff3b00"></i></span>
-    </span>
-  </a>
-
-  <a class="item" href="design-17-memphis.html">
-    <span class="n">17</span>
-    <span class="body">
-      <span class="name">Memphis / 80s Postmodern <span class="arrow">→</span></span>
-      <span class="desc">Primary colours, outline circles, triangles and pills floating in the margin, rounded chunky cards each with a different coloured shadow. The most fun of the twenty.</span>
-      <span class="swatch"><i class="sw" style="background:#fffaf0"></i><i class="sw" style="background:#ff2d6f"></i><i class="sw" style="background:#00b8a9"></i><i class="sw" style="background:#ffc93c"></i></span>
-    </span>
-  </a>
-
-  <a class="item" href="design-18-xerox.html">
-    <span class="n">18</span>
-    <span class="body">
-      <span class="name">Xerox / Photocopy <span class="arrow">→</span></span>
-      <span class="desc">Greyscale only, a dithered noise field, a dashed inner frame, a rotated “verified original” stamp and inverted black blocks. Raw, cheap-to-print, deliberately unpolished.</span>
-      <span class="swatch"><i class="sw" style="background:#dcdcd8"></i><i class="sw" style="background:#f2f2ee"></i><i class="sw" style="background:#0b0b0b"></i></span>
-    </span>
-  </a>
-
-  <a class="item" href="design-19-industrial.html">
-    <span class="n">19</span>
-    <span class="body">
-      <span class="name">Industrial / Hazard <span class="arrow">→</span></span>
-      <span class="desc">Safety yellow against black hazard stripes, a caution plate, rivets on the cards, steel spec plates and metrics as gauge readings. Reads as heavy equipment, not software.</span>
-      <span class="swatch"><i class="sw" style="background:#ffd400"></i><i class="sw" style="background:#0a0a0a"></i><i class="sw" style="background:#2b2b2b"></i></span>
-    </span>
-  </a>
-
-  <a class="item" href="design-20-gridbreak.html">
-    <span class="n">20</span>
-    <span class="body">
-      <span class="name">Grid-Break Editorial Poster <span class="arrow">→</span></span>
-      <span class="desc">A colour block sits behind the headline and the headline runs straight over it, breaking the grid on purpose. Outlined numerals, a vertical side label, hairline rules.</span>
-      <span class="swatch"><i class="sw" style="background:#fbfbf9"></i><i class="sw" style="background:#0c0c0c"></i><i class="sw" style="background:#ff4d00"></i></span>
-    </span>
-  </a>
+  <div class="family mp">
+    <div class="head">
+      <div>
+        <h2>Memphis</h2>
+        <div class="sw">
+          <i style="background:#fffaf0"></i><i style="background:#ff2d6f"></i><i style="background:#00b8a9"></i>
+          <i style="background:#ffc93c"></i><i style="background:#3d5af1"></i>
+        </div>
+      </div>
+      <span class="tag">primary colour · outline shapes · rounded chunky cards</span>
+    </div>
+    <div class="links">
+      <a href="memphis/home-a.html">
+        <span class="k">Home · A</span>
+        <span><span class="t">Day — cream, pill navigation, floating shapes</span>
+        <span class="d">Circles, triangles and pills in the margin; every card carries a different coloured shadow.</span></span>
+      </a>
+      <a href="memphis/home-b.html">
+        <span class="k">Home · B</span>
+        <span><span class="t">Night — deep violet, mint + coral + sun</span>
+        <span class="d">The party version: dotted grid, neon-on-dark palette, same playful geometry.</span></span>
+      </a>
+      <a href="memphis/work.html">
+        <span class="k">Work</span>
+        <span><span class="t">Full project inventory</span>
+        <span class="d">Identical content to the neubrutalism Work page — compare the two directly.</span></span>
+      </a>
+      <a href="memphis/notebook.html">
+        <span class="k">Notebook</span>
+        <span><span class="t">Entry index + one full article</span>
+        <span class="d">The same article in the memphis reading treatment — this is where the two diverge most.</span></span>
+      </a>
+      <a href="design-17-memphis.html">
+        <span class="k">Reference</span>
+        <span><span class="t">The original single page you picked</span>
+        <span class="d">Kept untouched as the memphis reference point.</span></span>
+      </a>
+    </div>
+  </div>
 
   <p class="foot">
-    <b>How to judge:</b> open each one and look at three things only — the headline, the project block, and the numbers row.
-    Then ask: does this feel like the person I want to be seen as, and can I read it on a phone in sunlight?
-    Mixed answers are allowed — a direction can be taken from one and details from another.
+    <b>How to decide:</b> open the two Notebook pages first — long-form reading is the hardest test for any loud design,
+    and it is where a style either holds up or falls apart. Then open the two Work pages, which carry the most
+    information density. The Home page is the easy one; almost anything works there.
+    <br><br>
+    If the answer is “memphis for home, neubrutalism for reading”, say so — mixing the two is allowed, and I can build
+    a hybrid where one supplies the palette and the other supplies the structure.
   </p>
 
-  <a class="back" href="../index.html">← back to the current site</a>
+  <a class="back" href="../index.html">← the current live site</a>
 
 </div>
 </body>
