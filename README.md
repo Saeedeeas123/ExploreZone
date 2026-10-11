@@ -21,13 +21,34 @@ assets/style.css  the only stylesheet (light + dark, responsive)
 
 ## Publishing to GitHub Pages
 
-1. Create a repository named `lab-notebook` (or any name).
-2. Push these files to the default branch.
-3. Repository → Settings → Pages → Source: *Deploy from a branch* → branch `main`, folder `/ (root)`.
-4. The site appears at `https://<username>.github.io/lab-notebook/`.
+The **git repository lives on the Linux side** at `/root/projects/ExploreZone`, not on `/sdcard`.
+git cannot run on the Android FUSE mount: it reports `detected dubious ownership` (fixed once with
+`git config --global --add safe.directory <path>`) and then fails to write `.git/objects/*` at all
+(`No such file or directory`) — the same atomic-write limitation that breaks Obsidian MCP writes.
 
-For the site to live at `https://<username>.github.io/` instead, the repository must be named exactly
-`<username>.github.io`.
+**Publish procedure**
+
+```
+# 1. copy the authoring copy into the repo — NOTE: tar is ADDITIVE
+cd /sdcard/Download/OperitProjects/lab-notebook
+tar --exclude='./.git' -cf - . | tar -xf - -C /root/projects/ExploreZone
+
+# 2. IMPORTANT: deletions at the source do NOT propagate.
+#    If you deleted files, remove them from the repo too, e.g.:
+#      cd /root/projects/ExploreZone && git rm -q <paths>
+#    (or use rsync -a --delete --exclude=.git <src>/ <repo>/)
+
+# 3. commit + push
+cd /root/projects/ExploreZone
+git add -A && git commit -m "..." && git push origin main
+```
+
+The token is read from the vault credentials note into `/tmp/ghtok` by `_tools/ghtok.py` and passed through a
+credential helper so it never appears in the remote URL. `/tmp/ghtok` is lost when the terminal session
+changes — re-run the script.
+
+Then: Repository → Settings → Pages → Source: *Deploy from a branch* → branch `main`, folder `/ (root)`.
+The site is at `https://saeedeeas123.github.io/ExploreZone/`.
 
 Notes:
 
