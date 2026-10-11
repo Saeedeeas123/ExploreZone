@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design 13 — Constructivist</title>
+<link rel="stylesheet" href="../assets/fonts.css">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--cream:#efe9dc;--ink:#141414;--red:#d31f1f}
+  body{background:var(--cream);color:var(--ink);font-family:Montserrat,system-ui,sans-serif;font-size:15px;line-height:1.55;overflow-x:hidden}
+  .sheet{max-width:1020px;margin:0 auto;padding:24px 20px 80px;position:relative}
+  /* diagonal band */
+  .band{position:absolute;top:0;right:-140px;width:420px;height:150%;background:var(--red);transform:rotate(14deg);z-index:0;opacity:.92}
+  .top{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap;
+       border-bottom:5px solid var(--ink);padding-bottom:9px}
+  .brand{font-weight:900;font-size:14px;letter-spacing:.14em;text-transform:uppercase}
+  nav{display:flex;gap:18px;font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase}
+  nav a{color:var(--ink);text-decoration:none;border-bottom:2px solid var(--ink)}
+  nav a:hover{background:var(--red);color:var(--cream);border-color:var(--red)}
+  .hero{position:relative;z-index:2;padding:64px 0 40px}
+  .tagline{display:inline-block;background:var(--ink);color:var(--cream);font-size:11px;font-weight:900;letter-spacing:.24em;
+           text-transform:uppercase;padding:7px 14px;transform:rotate(-1.5deg)}
+  h1{margin-top:26px;font-size:clamp(36px,10vw,88px);line-height:.88;letter-spacing:-.05em;font-weight:900;text-transform:uppercase;max-width:15ch}
+  h1 em{font-style:normal;color:var(--red)}
+  .row{position:relative;z-index:2;display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start;margin-top:30px;
+       border-top:2px solid var(--ink);padding-top:16px}
+  .row p{max-width:46ch;color:#332f28;font-weight:500}
+  .by{margin-left:auto;font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+  .arrow{position:relative;z-index:2;width:0;height:0;border-left:26px solid var(--ink);border-top:14px solid transparent;
+         border-bottom:14px solid transparent;margin:34px 0 0}
+  h2{position:relative;z-index:2;margin:50px 0 20px;font-size:13px;font-weight:900;letter-spacing:.28em;text-transform:uppercase;
+     display:flex;align-items:center;gap:14px}
+  h2::before{content:"";width:34px;height:5px;background:var(--red)}
+  h2::after{content:"";flex:1;height:2px;background:var(--ink)}
+  .piece{position:relative;z-index:2;display:grid;grid-template-columns:110px 1fr;gap:22px;padding:26px 0;border-bottom:2px solid var(--ink)}
+  .piece .n{font-size:56px;font-weight:900;line-height:.8;letter-spacing:-.06em;color:var(--red)}
+  .piece h3{font-size:clamp(19px,3.6vw,28px);font-weight:900;letter-spacing:-.03em;text-transform:uppercase;line-height:1.08}
+  .piece p{margin-top:10px;color:#332f28;max-width:58ch}
+  .piece .m{margin-top:14px;display:inline-block;background:var(--red);color:var(--cream);font-size:11px;font-weight:900;
+            letter-spacing:.14em;text-transform:uppercase;padding:6px 12px;transform:rotate(-1deg)}
+  .nums{position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:3px solid var(--ink);margin-top:10px}
+  .num{padding:26px 18px;border-right:3px solid var(--ink)}
+  .num:last-child{border-right:0;background:var(--ink);color:var(--cream)}
+  .num b{display:block;font-size:clamp(26px,6vw,42px);font-weight:900;letter-spacing:-.05em;line-height:1}
+  .num span{display:block;margin-top:9px;font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
+  .note{position:relative;z-index:2;margin-top:50px;background:var(--ink);color:var(--cream);padding:34px 28px;transform:rotate(-.6deg)}
+  .note .lbl{font-size:10px;font-weight:900;letter-spacing:.28em;text-transform:uppercase;color:var(--red)}
+  .note h3{margin-top:12px;font-size:clamp(21px,4.8vw,36px);font-weight:900;letter-spacing:-.04em;line-height:1.05;text-transform:uppercase;max-width:28ch}
+  .note p{margin-top:12px;color:#c9c2b4;max-width:60ch}
+  .note a{display:inline-block;margin-top:18px;font-size:12px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;
+          color:var(--ink);background:var(--red);padding:12px 20px;text-decoration:none}
+  .note a:hover{background:var(--cream)}
+  footer{position:relative;z-index:2;margin-top:44px;border-top:5px solid var(--ink);padding-top:12px;display:flex;
+         justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+  @media(max-width:700px){.band{right:-220px}.piece{grid-template-columns:70px 1fr;gap:14px}.piece .n{font-size:38px}
+    .nums{grid-template-columns:1fr}.num{border-right:0;border-bottom:3px solid var(--ink)}}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="band"></div>
+
+  <div class="top">
+    <div class="brand">ExploreZone · lab·notebook</div>
+    <nav><a href="#">Home</a><a href="#">Work</a><a href="#">Notebook</a><a href="#">About</a></nav>
+  </div>
+
+  <section class="hero">
+    <span class="tagline">on-device ai · android · from scratch</span>
+    <h1>I build AI systems that run <em>entirely</em> on the phone.</h1>
+    <div class="row">
+      <p>Offline Android agents, on-device language models, and systems written from scratch — every claim measured on real hardware.</p>
+      <p class="by">By Saeed — author, owner &amp; publisher</p>
+    </div>
+    <div class="arrow"></div>
+  </section>
+
+  <h2>Selected work</h2>
+
+  <article class="piece">
+    <div class="n">01</div>
+    <div>
+      <h3>Cosmo — offline Android agent</h3>
+      <p>Voice → decision → action with no network. The first execution model was rejected by device testing, so v2 is rebuilt around ordered FIND/DO layers with a mandatory trace.</p>
+      <span class="m">8 defects found in round one</span>
+    </div>
+  </article>
+
+  <article class="piece">
+    <div class="n">02</div>
+    <div>
+      <h3>Anima — talking avatar from pure math</h3>
+      <p>Phonemizer, formant voice synthesis, viseme curves, a 3D rasterized face and a neural language model with hand-derived backpropagation — standard library only.</p>
+      <span class="m">Perplexity 2.6 vs 44.1 unigram</span>
+    </div>
+  </article>
+
+  <article class="piece">
+    <div class="n">03</div>
+    <div>
+      <h3>MiniKeys — modular Android keyboard</h3>
+      <p>A keyboard assembled from reusable modules, with an OpenAI-compatible client and an Android-Keystore key vault.</p>
+      <span class="m">14/14 unit tests · APK 8,710,088 bytes</span>
+    </div>
+  </article>
+
+  <h2>Numbers</h2>
+  <div class="nums">
+    <div class="num"><b>4.0e-08</b><span>Gradient check</span></div>
+    <div class="num"><b>≤11.5%</b><span>Formant error</span></div>
+    <div class="num"><b>129 / 0</b><span>Links / broken</span></div>
+  </div>
+
+  <div class="note">
+    <p class="lbl">From the notebook</p>
+    <h3>The ARM64 aapt2 trap that eats Android builds on-device</h3>
+    <p>One Gradle property decides whether any on-device Android build can succeed — and the error message says “file not found”, which is why it costs people days.</p>
+    <a href="#">Read the entry →</a>
+  </div>
+
+  <footer>
+    <span>© 2026 Saeed · ExploreZone</span>
+    <span>Design 13 — Constructivist</span>
+  </footer>
+
+</div>
+</body>
+</html>

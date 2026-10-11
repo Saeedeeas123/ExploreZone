@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design 20 — Grid-Break Editorial Poster</title>
+<link rel="stylesheet" href="../assets/fonts.css">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--ink:#0c0c0c;--paper:#fbfbf9;--sig:#ff4d00;--grey:#e6e5e0}
+  body{background:var(--paper);color:var(--ink);font-family:Montserrat,system-ui,sans-serif;font-size:15px;line-height:1.55;overflow-x:hidden}
+  .sheet{max-width:1060px;margin:0 auto;padding:0 0 80px;position:relative}
+  .top{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;padding:20px 22px 14px}
+  .brand{font-weight:900;font-size:15px;letter-spacing:-.01em;text-transform:uppercase}
+  .brand i{color:var(--sig);font-style:normal}
+  nav{display:flex;gap:22px;flex-wrap:wrap;font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase}
+  nav a{color:var(--ink);text-decoration:none;border-bottom:2px solid transparent;padding-bottom:2px}
+  nav a:hover{border-bottom-color:var(--sig)}
+  .rule{height:3px;background:var(--ink);margin:0 22px}
+  /* grid-break hero: colour block sits behind, headline overlaps it */
+  .hero{position:relative;padding:70px 22px 56px;min-height:400px}
+  .block{position:absolute;top:24px;right:-30px;width:56%;height:78%;background:var(--sig)}
+  .block2{position:absolute;bottom:0;left:0;width:38%;height:34%;background:var(--ink)}
+  .hero-inner{position:relative;z-index:2}
+  .kicker{font-size:11px;font-weight:900;letter-spacing:.3em;text-transform:uppercase;color:var(--sig);margin-bottom:26px}
+  h1{font-size:clamp(34px,10vw,104px);line-height:.86;letter-spacing:-.055em;font-weight:900;text-transform:uppercase;max-width:14ch}
+  h1 span{background:var(--sig);color:#fff;padding:0 10px}
+  .sub{margin-top:34px;max-width:44ch;font-weight:600;font-size:16px;position:relative;z-index:3}
+  .by{margin-top:18px;font-size:11px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:#6a6a64;position:relative;z-index:3}
+  .vert{position:absolute;right:6px;bottom:14px;transform:rotate(180deg);writing-mode:vertical-rl;
+        font-size:10px;font-weight:900;letter-spacing:.32em;text-transform:uppercase;color:var(--ink);z-index:3}
+  h2{margin:56px 22px 0;display:flex;align-items:baseline;gap:16px;font-size:12px;font-weight:900;letter-spacing:.28em;text-transform:uppercase}
+  h2::after{content:"";flex:1;height:3px;background:var(--ink)}
+  .pieces{margin:0 22px}
+  .piece{display:grid;grid-template-columns:120px 1fr;gap:24px;padding:28px 0;border-bottom:1px solid var(--grey);align-items:start}
+  .piece .idx{font-size:52px;font-weight:900;line-height:.8;letter-spacing:-.06em;color:transparent;-webkit-text-stroke:2px var(--ink)}
+  .piece h3{font-size:clamp(20px,3.6vw,30px);font-weight:900;letter-spacing:-.03em;text-transform:uppercase;line-height:1.08;max-width:22ch}
+  .piece p{margin-top:12px;color:#3a3a36;max-width:56ch}
+  .piece .m{margin-top:16px;display:inline-block;font-size:12px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;
+            background:var(--sig);color:#fff;padding:6px 12px}
+  .figures{margin:0 22px;display:grid;grid-template-columns:repeat(3,1fr);border-top:3px solid var(--ink);border-bottom:3px solid var(--ink)}
+  .fig{padding:28px 18px 28px 0;border-right:1px solid var(--grey)}
+  .fig:last-child{border-right:0}
+  .fig b{display:block;font-size:clamp(30px,7.4vw,56px);font-weight:900;letter-spacing:-.05em;line-height:1}
+  .fig span{display:block;margin-top:10px;font-size:10px;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:#6a6a64}
+  .note{margin:56px 22px 0;position:relative;padding:38px 30px;border:3px solid var(--ink)}
+  .note .corner{position:absolute;top:-3px;right:-3px;width:96px;height:96px;background:var(--sig)}
+  .note .lbl{font-size:10px;font-weight:900;letter-spacing:.3em;text-transform:uppercase;color:var(--sig);position:relative;z-index:2}
+  .note h3{margin-top:14px;font-size:clamp(22px,4.6vw,36px);font-weight:900;letter-spacing:-.04em;line-height:1.05;text-transform:uppercase;max-width:26ch;position:relative;z-index:2}
+  .note p{margin-top:14px;color:#3a3a36;max-width:60ch;position:relative;z-index:2}
+  .note a{display:inline-block;margin-top:20px;font-size:12px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;
+          text-decoration:none;color:#fff;background:var(--ink);padding:13px 20px;position:relative;z-index:2}
+  .note a:hover{background:var(--sig)}
+  footer{margin:44px 22px 0;border-top:3px solid var(--ink);padding-top:14px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+         font-size:10px;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:#6a6a64}
+  @media(max-width:760px){
+    .block{width:70%;right:-40px;height:62%}
+    .block2{width:52%}
+    .piece{grid-template-columns:1fr;gap:8px}
+    .piece .idx{font-size:38px}
+    .figures{grid-template-columns:1fr}
+    .fig{border-right:0;border-bottom:1px solid var(--grey)}
+    .vert{display:none}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="top">
+    <div class="brand">Explore<i>Zone</i> · lab·notebook</div>
+    <nav><a href="#">Home</a><a href="#">Work</a><a href="#">Notebook</a><a href="#">About</a></nav>
+  </div>
+  <div class="rule"></div>
+
+  <section class="hero">
+    <div class="block"></div>
+    <div class="block2"></div>
+    <div class="hero-inner">
+      <p class="kicker">on-device ai · android · from scratch</p>
+      <h1>I build AI systems that run entirely <span>on the phone</span>.</h1>
+    </div>
+    <p class="sub">Offline Android agents, on-device language models, and systems written from scratch — every claim measured on real hardware.</p>
+    <p class="by">By Saeed — author, owner &amp; publisher · ExploreZone</p>
+    <span class="vert">measured · not claimed</span>
+  </section>
+
+  <h2>Selected work</h2>
+  <div class="pieces">
+
+    <article class="piece">
+      <div class="idx">01</div>
+      <div>
+        <h3>Cosmo — offline Android agent</h3>
+        <p>Voice → decision → action with no network. The first execution model was rejected by device testing, so v2 is rebuilt around ordered FIND/DO layers with a mandatory trace.</p>
+        <span class="m">8 defects found in round one</span>
+      </div>
+    </article>
+
+    <article class="piece">
+      <div class="idx">02</div>
+      <div>
+        <h3>Anima — talking avatar from pure math</h3>
+        <p>Phonemizer, formant voice synthesis, viseme curves, a 3D rasterized face and a neural language model with hand-derived backpropagation — standard library only.</p>
+        <span class="m">Perplexity 2.6 vs 44.1 unigram</span>
+      </div>
+    </article>
+
+    <article class="piece">
+      <div class="idx">03</div>
+      <div>
+        <h3>MiniKeys — modular Android keyboard</h3>
+        <p>A keyboard assembled from reusable modules, with an OpenAI-compatible client and an Android-Keystore key vault.</p>
+        <span class="m">14/14 unit tests · APK 8,710,088 bytes</span>
+      </div>
+    </article>
+
+  </div>
+
+  <h2>Numbers</h2>
+  <div class="figures">
+    <div class="fig"><b>4.0e-08</b><span>Gradient check</span></div>
+    <div class="fig"><b>≤11.5%</b><span>Formant error</span></div>
+    <div class="fig"><b>129 / 0</b><span>Links / broken</span></div>
+  </div>
+
+  <div class="note">
+    <span class="corner"></span>
+    <p class="lbl">From the notebook</p>
+    <h3>The ARM64 aapt2 trap that eats Android builds on-device</h3>
+    <p>One Gradle property decides whether any on-device Android build can succeed — and the error message says “file not found”, which is why it costs people days.</p>
+    <a href="#">Read the entry →</a>
+  </div>
+
+  <footer>
+    <span>© 2026 Saeed · ExploreZone</span>
+    <span>Design 20 — Grid-Break Editorial Poster</span>
+  </footer>
+
+</div>
+</body>
+</html>

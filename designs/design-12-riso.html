@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design 12 — Riso Print / Overprint</title>
+<link rel="stylesheet" href="../assets/fonts.css">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--paper:#f2ecdd;--ink:#161616;--orange:#ff5a1f;--blue:#1b34c8}
+  body{background:var(--paper);color:var(--ink);font-family:Montserrat,system-ui,sans-serif;font-size:15px;line-height:1.6;
+       -webkit-font-smoothing:antialiased}
+  /* halftone dot field */
+  body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.28;
+    background-image:radial-gradient(var(--blue) 1px,transparent 1.4px);background-size:7px 7px}
+  .sheet{position:relative;z-index:1;max-width:1000px;margin:0 auto;padding:26px 20px 80px}
+  .top{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;
+       border-bottom:3px solid var(--ink);padding-bottom:12px}
+  .brand{font-weight:900;font-size:15px;letter-spacing:-.01em;text-transform:uppercase}
+  .brand i{color:var(--orange);font-style:normal}
+  nav{display:flex;gap:16px;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+  nav a{color:var(--ink);text-decoration:none;box-shadow:2px 2px 0 var(--orange)}
+  nav a:hover{background:var(--blue);color:var(--paper);box-shadow:2px 2px 0 var(--orange)}
+  .hero{margin-top:44px;position:relative}
+  .kicker{display:inline-block;font-size:11px;font-weight:900;letter-spacing:.2em;text-transform:uppercase;
+          color:var(--paper);background:var(--blue);padding:6px 12px;box-shadow:5px 5px 0 var(--orange)}
+  h1{margin-top:22px;font-size:clamp(34px,9vw,84px);line-height:.92;letter-spacing:-.045em;font-weight:900;text-transform:uppercase;
+     text-shadow:5px 4px 0 var(--orange)}
+  h1 b{color:var(--blue);font-weight:900;text-shadow:5px 4px 0 var(--orange)}
+  .sub{margin-top:26px;max-width:52ch;color:#3a3630;font-weight:500}
+  .by{margin-top:16px;font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--blue)}
+  h2{margin:52px 0 18px;font-size:13px;font-weight:900;letter-spacing:.2em;text-transform:uppercase;
+     display:inline-block;border-bottom:4px solid var(--orange)}
+  .cards{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(270px,1fr))}
+  .card{background:var(--paper);border:2px solid var(--ink);padding:20px;position:relative;
+        box-shadow:8px 8px 0 var(--blue)}
+  .card .n{position:absolute;top:-14px;left:16px;background:var(--orange);color:var(--ink);font-weight:900;font-size:13px;
+           padding:3px 10px;border:2px solid var(--ink)}
+  .card h3{margin-top:10px;font-size:19px;font-weight:900;letter-spacing:-.02em;line-height:1.15;text-transform:uppercase}
+  .card p{margin-top:10px;color:#3a3630;font-size:14px}
+  .card .m{margin-top:14px;padding-top:12px;border-top:2px dashed var(--ink);font-size:12px;font-weight:800;
+           letter-spacing:.06em;text-transform:uppercase;color:var(--blue)}
+  .nums{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));margin-top:8px}
+  .num{border:2px solid var(--ink);padding:18px;text-align:center;background:var(--orange);box-shadow:6px 6px 0 var(--ink)}
+  .num:nth-child(2){background:var(--paper)}
+  .num b{display:block;font-size:clamp(24px,6vw,34px);font-weight:900;letter-spacing:-.04em}
+  .num span{display:block;margin-top:8px;font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
+  .note{margin-top:52px;border:3px solid var(--ink);background:var(--paper);padding:30px 26px;
+        box-shadow:10px 10px 0 var(--orange)}
+  .note .lbl{font-size:10px;font-weight:900;letter-spacing:.24em;text-transform:uppercase;color:var(--blue)}
+  .note h3{margin-top:12px;font-size:clamp(21px,4.6vw,34px);font-weight:900;letter-spacing:-.035em;line-height:1.08;text-transform:uppercase;max-width:28ch}
+  .note p{margin-top:12px;color:#3a3630;max-width:60ch}
+  .note a{display:inline-block;margin-top:20px;font-size:12px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;
+          color:var(--paper);background:var(--blue);padding:12px 20px;text-decoration:none;box-shadow:4px 4px 0 var(--orange)}
+  .note a:hover{background:var(--ink)}
+  footer{margin-top:48px;border-top:3px solid var(--ink);padding-top:14px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+         font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#6b655b}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="top">
+    <div class="brand">ExploreZone <i>·</i> lab·notebook</div>
+    <nav><a href="#">Home</a><a href="#">Work</a><a href="#">Notebook</a><a href="#">About</a></nav>
+  </div>
+
+  <section class="hero">
+    <span class="kicker">open notebook · two spot inks · no cloud</span>
+    <h1>I build AI systems that run <b>entirely on the phone</b>.</h1>
+    <p class="sub">Offline Android agents, on-device language models, and systems written from scratch — every claim measured on real hardware.</p>
+    <p class="by">By Saeed — author, owner &amp; publisher · ExploreZone</p>
+  </section>
+
+  <h2>Selected work</h2>
+  <div class="cards">
+    <div class="card">
+      <span class="n">01</span>
+      <h3>Cosmo — offline Android agent</h3>
+      <p>Voice → decision → action with no network. The first execution model was rejected by device testing, so v2 is rebuilt around ordered FIND/DO layers with a mandatory trace.</p>
+      <p class="m">8 defects found in round one</p>
+    </div>
+    <div class="card">
+      <span class="n">02</span>
+      <h3>Anima — talking avatar from pure math</h3>
+      <p>Phonemizer, formant voice synthesis, viseme curves, a 3D rasterized face and a neural language model with hand-derived backpropagation — standard library only.</p>
+      <p class="m">Perplexity 2.6 vs 44.1 unigram</p>
+    </div>
+    <div class="card">
+      <span class="n">03</span>
+      <h3>MiniKeys — modular Android keyboard</h3>
+      <p>A keyboard assembled from reusable modules, with an OpenAI-compatible client and an Android-Keystore key vault.</p>
+      <p class="m">14/14 unit tests · APK 8,710,088 bytes</p>
+    </div>
+  </div>
+
+  <h2>Numbers</h2>
+  <div class="nums">
+    <div class="num"><b>4.0e-08</b><span>Gradient check</span></div>
+    <div class="num"><b>≤11.5%</b><span>Formant error</span></div>
+    <div class="num"><b>129 / 0</b><span>Links / broken</span></div>
+  </div>
+
+  <div class="note">
+    <p class="lbl">From the notebook</p>
+    <h3>The ARM64 aapt2 trap that eats Android builds on-device</h3>
+    <p>One Gradle property decides whether any on-device Android build can succeed — and the error message says “file not found”, which is why it costs people days.</p>
+    <a href="#">Read the entry →</a>
+  </div>
+
+  <footer>
+    <span>© 2026 Saeed · ExploreZone</span>
+    <span>Design 12 — Riso Print / Overprint</span>
+  </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design 11 — Poster / Type-Driven</title>
+<link rel="stylesheet" href="../assets/fonts.css">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--ink:#0a0a0a;--blue:#1b3bff;--grey:#eceae4}
+  body{background:#fff;color:var(--ink);font-family:Montserrat,system-ui,sans-serif;font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  .sheet{max-width:1080px;margin:0 auto;padding:26px 20px 80px}
+  .top{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;border-bottom:4px solid var(--ink);padding-bottom:10px}
+  .brand{font-weight:900;font-size:14px;letter-spacing:.02em}
+  .brand i{color:var(--blue);font-style:normal}
+  nav{display:flex;gap:20px;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+  nav a{color:var(--ink);text-decoration:none}
+  nav a:hover{color:var(--blue)}
+  .hero{padding:60px 0 44px;display:grid;grid-template-columns:1fr;gap:26px}
+  h1{font-size:clamp(38px,11vw,104px);line-height:.9;letter-spacing:-.045em;font-weight:900;text-transform:uppercase;max-width:16ch}
+  h1 b{color:var(--blue);font-weight:900}
+  .side{display:flex;gap:26px;flex-wrap:wrap;align-items:flex-start;border-top:1px solid var(--grey);padding-top:18px}
+  .side p{max-width:44ch;color:#3a3a3a;font-size:15px}
+  .by{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#8a8a8a;margin-left:auto}
+  h2{font-size:11px;font-weight:800;letter-spacing:.3em;text-transform:uppercase;color:#8a8a8a;margin:56px 0 0;border-top:4px solid var(--ink);padding-top:12px}
+  .piece{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:30px 0;border-bottom:1px solid var(--grey)}
+  .big{font-size:78px;font-weight:900;line-height:.8;letter-spacing:-.06em;color:transparent;-webkit-text-stroke:2px var(--ink)}
+  .piece h3{font-size:clamp(20px,3.4vw,30px);font-weight:800;letter-spacing:-.03em;line-height:1.1;text-transform:uppercase}
+  .piece p{margin-top:12px;color:#3a3a3a;max-width:58ch}
+  .piece .m{margin-top:16px;font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--blue)}
+  .nums{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:4px solid var(--ink)}
+  .num{padding:30px 16px 30px 0;border-right:1px solid var(--grey)}
+  .num:last-child{border-right:0}
+  .num b{display:block;font-size:clamp(30px,7vw,54px);font-weight:900;letter-spacing:-.05em;line-height:1}
+  .num span{display:block;margin-top:10px;font-size:10px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#8a8a8a}
+  .note{margin-top:56px;display:grid;grid-template-columns:1fr;gap:18px;background:var(--ink);color:#fff;padding:38px 30px}
+  .note .lbl{font-size:10px;font-weight:800;letter-spacing:.3em;text-transform:uppercase;color:var(--blue)}
+  .note h3{font-size:clamp(22px,4.4vw,38px);font-weight:900;letter-spacing:-.035em;line-height:1.05;text-transform:uppercase;max-width:26ch}
+  .note p{color:#c8c8c8;max-width:62ch}
+  .note a{justify-self:start;font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);background:#fff;padding:12px 20px;text-decoration:none}
+  .note a:hover{background:var(--blue);color:#fff}
+  footer{margin-top:40px;border-top:4px solid var(--ink);padding-top:12px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+         font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#8a8a8a}
+  @media(max-width:700px){.piece{grid-template-columns:1fr;gap:6px}.big{font-size:54px}.nums{grid-template-columns:1fr}.num{border-right:0;border-bottom:1px solid var(--grey)}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="top">
+    <div class="brand">ExploreZone <i>·</i> lab·notebook</div>
+    <nav><a href="#">Home</a><a href="#">Work</a><a href="#">Notebook</a><a href="#">About</a></nav>
+  </div>
+
+  <section class="hero">
+    <h1>I build AI systems that run <b>entirely on the phone</b>.</h1>
+    <div class="side">
+      <p>Offline Android agents, on-device language models, and systems written from scratch — every claim measured on real hardware.</p>
+      <p class="by">By Saeed — author, owner &amp; publisher</p>
+    </div>
+  </section>
+
+  <h2>Selected work</h2>
+
+  <article class="piece">
+    <div class="big">01</div>
+    <div>
+      <h3>Cosmo — offline Android agent</h3>
+      <p>Voice → decision → action with no network. The first execution model was rejected by device testing, so v2 is rebuilt around ordered FIND/DO layers with a mandatory trace.</p>
+      <p class="m">8 defects found in round one</p>
+    </div>
+  </article>
+
+  <article class="piece">
+    <div class="big">02</div>
+    <div>
+      <h3>Anima — talking avatar from pure math</h3>
+      <p>Phonemizer, formant voice synthesis, viseme curves, a 3D rasterized face and a neural language model with hand-derived backpropagation — standard library only.</p>
+      <p class="m">Perplexity 2.6 vs 44.1 unigram</p>
+    </div>
+  </article>
+
+  <article class="piece">
+    <div class="big">03</div>
+    <div>
+      <h3>MiniKeys — modular Android keyboard</h3>
+      <p>A keyboard assembled from reusable modules, with an OpenAI-compatible client and an Android-Keystore key vault.</p>
+      <p class="m">14/14 unit tests · APK 8,710,088 bytes</p>
+    </div>
+  </article>
+
+  <h2>Numbers</h2>
+  <div class="nums">
+    <div class="num"><b>4.0e-08</b><span>Gradient check</span></div>
+    <div class="num"><b>≤11.5%</b><span>Formant error</span></div>
+    <div class="num"><b>129 / 0</b><span>Links / broken</span></div>
+  </div>
+
+  <div class="note">
+    <p class="lbl">From the notebook</p>
+    <h3>The ARM64 aapt2 trap that eats Android builds on-device</h3>
+    <p>One Gradle property decides whether any on-device Android build can succeed — and the error message says “file not found”, which is why it costs people days.</p>
+    <a href="#">Read the entry →</a>
+  </div>
+
+  <footer>
+    <span>© 2026 Saeed · ExploreZone</span>
+    <span>Design 11 — Poster / Type-Driven</span>
+  </footer>
+
+</div>
+</body>
+</html>

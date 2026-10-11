@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design 15 — Arcade / 8-bit</title>
+<link rel="stylesheet" href="../assets/fonts.css">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--bg:#0a0f2b;--panel:#131a45;--yellow:#ffd400;--cyan:#00e5ff;--pink:#ff2e88;--ink:#04071a}
+  body{background:var(--bg);color:#eaf0ff;font-family:Montserrat,system-ui,sans-serif;font-size:15px;line-height:1.6;
+       background-image:radial-gradient(rgba(0,229,255,.16) 1.2px,transparent 1.4px);background-size:16px 16px}
+  .cab{max-width:1000px;margin:0 auto;padding:24px 16px 80px}
+  .top{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;
+       background:var(--panel);border:4px solid var(--ink);padding:12px 14px;
+       box-shadow:inset 4px 4px 0 rgba(255,255,255,.14),inset -4px -4px 0 rgba(0,0,0,.5),0 0 0 4px var(--cyan)}
+  .brand{font-weight:900;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--yellow)}
+  .brand i{color:var(--pink);font-style:normal}
+  nav{display:flex;gap:8px;flex-wrap:wrap}
+  nav a{font-size:11px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--ink);
+        background:var(--cyan);padding:8px 12px;border:3px solid var(--ink);
+        box-shadow:inset 3px 3px 0 rgba(255,255,255,.5),inset -3px -3px 0 rgba(0,0,0,.35)}
+  nav a:hover{background:var(--yellow)}
+  .hud{margin-top:22px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+       font-size:10px;font-weight:900;letter-spacing:.24em;text-transform:uppercase;color:var(--cyan)}
+  .hud b{color:var(--yellow)}
+  .hero{margin-top:14px;background:var(--panel);border:4px solid var(--ink);padding:32px 22px;
+        box-shadow:inset 5px 5px 0 rgba(255,255,255,.12),inset -5px -5px 0 rgba(0,0,0,.5),0 0 0 4px var(--yellow)}
+  .badge{display:inline-block;font-size:10px;font-weight:900;letter-spacing:.22em;text-transform:uppercase;
+         background:var(--pink);color:var(--ink);padding:6px 12px;border:3px solid var(--ink);margin-bottom:20px}
+  h1{font-size:clamp(28px,7.6vw,62px);line-height:1;letter-spacing:-.03em;font-weight:900;text-transform:uppercase;max-width:17ch;
+     color:#fff;text-shadow:4px 4px 0 var(--pink),8px 8px 0 rgba(0,0,0,.55)}
+  h1 em{font-style:normal;color:var(--cyan)}
+  .sub{margin-top:22px;max-width:54ch;color:#c3ccf0;font-weight:600}
+  .by{margin-top:16px;font-size:11px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:var(--yellow)}
+  h2{margin:44px 0 18px;font-size:14px;font-weight:900;letter-spacing:.24em;text-transform:uppercase;color:var(--yellow);
+     display:flex;align-items:center;gap:12px}
+  h2::before,h2::after{content:"";height:4px;background:var(--pink);flex:1}
+  .cards{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(265px,1fr))}
+  .card{background:var(--panel);border:4px solid var(--ink);padding:20px;
+        box-shadow:inset 4px 4px 0 rgba(255,255,255,.12),inset -4px -4px 0 rgba(0,0,0,.5),0 0 0 4px var(--cyan)}
+  .card .n{display:inline-block;font-size:11px;font-weight:900;letter-spacing:.16em;background:var(--yellow);color:var(--ink);
+           padding:4px 10px;border:3px solid var(--ink);margin-bottom:12px}
+  .card h3{font-size:18px;font-weight:900;letter-spacing:-.01em;text-transform:uppercase;line-height:1.15;color:#fff}
+  .card p{margin-top:10px;color:#c3ccf0;font-size:14px}
+  .card .m{margin-top:14px;padding-top:12px;border-top:4px dotted rgba(0,229,255,.5);font-size:12px;font-weight:900;
+           letter-spacing:.06em;text-transform:uppercase;color:var(--cyan)}
+  .scores{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}
+  .score{background:var(--ink);border:4px solid var(--cyan);padding:18px;text-align:center}
+  .score b{display:block;font-size:clamp(22px,5.6vw,32px);font-weight:900;letter-spacing:-.03em;color:var(--yellow);
+           text-shadow:3px 3px 0 rgba(255,46,136,.75)}
+  .score span{display:block;margin-top:8px;font-size:10px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:#9fb0e8}
+  .note{margin-top:46px;background:var(--panel);border:4px solid var(--ink);padding:28px 24px;
+        box-shadow:inset 5px 5px 0 rgba(255,255,255,.12),inset -5px -5px 0 rgba(0,0,0,.5),0 0 0 4px var(--pink)}
+  .note .lbl{font-size:10px;font-weight:900;letter-spacing:.26em;text-transform:uppercase;color:var(--cyan)}
+  .note h3{margin-top:12px;font-size:clamp(20px,4.4vw,32px);font-weight:900;letter-spacing:-.03em;line-height:1.1;text-transform:uppercase;max-width:30ch;color:#fff}
+  .note p{margin-top:12px;color:#c3ccf0;max-width:62ch}
+  .note a{display:inline-block;margin-top:20px;font-size:12px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;
+          text-decoration:none;color:var(--ink);background:var(--yellow);padding:13px 20px;border:3px solid var(--ink);
+          box-shadow:inset 3px 3px 0 rgba(255,255,255,.6),inset -3px -3px 0 rgba(0,0,0,.35)}
+  .note a:hover{background:var(--cyan)}
+  footer{margin-top:50px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+         font-size:10px;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:#8b9ad6;
+         border-top:4px solid var(--panel);padding-top:16px}
+</style>
+</head>
+<body>
+<div class="cab">
+
+  <div class="top">
+    <div class="brand">Explore<i>Zone</i> · lab·notebook</div>
+    <nav><a href="#">Home</a><a href="#">Work</a><a href="#">Notebook</a><a href="#">About</a></nav>
+  </div>
+
+  <div class="hud">
+    <span>credits <b>∞</b></span>
+    <span>mode <b>on-device</b></span>
+    <span>cloud <b>disabled</b></span>
+  </div>
+
+  <section class="hero">
+    <span class="badge">press start · no cloud required</span>
+    <h1>I build AI systems that run <em>entirely on the phone</em>.</h1>
+    <p class="sub">Offline Android agents, on-device language models, and systems written from scratch — every claim measured on real hardware.</p>
+    <p class="by">By Saeed — author, owner &amp; publisher · ExploreZone</p>
+  </section>
+
+  <h2>Selected work</h2>
+  <div class="cards">
+    <div class="card">
+      <span class="n">STAGE 01</span>
+      <h3>Cosmo — offline Android agent</h3>
+      <p>Voice → decision → action with no network. The first execution model was rejected by device testing, so v2 is rebuilt around ordered FIND/DO layers with a mandatory trace.</p>
+      <p class="m">8 defects found in round one</p>
+    </div>
+    <div class="card">
+      <span class="n">STAGE 02</span>
+      <h3>Anima — talking avatar from pure math</h3>
+      <p>Phonemizer, formant voice synthesis, viseme curves, a 3D rasterized face and a neural language model with hand-derived backpropagation — standard library only.</p>
+      <p class="m">Perplexity 2.6 vs 44.1 unigram</p>
+    </div>
+    <div class="card">
+      <span class="n">STAGE 03</span>
+      <h3>MiniKeys — modular Android keyboard</h3>
+      <p>A keyboard assembled from reusable modules, with an OpenAI-compatible client and an Android-Keystore key vault.</p>
+      <p class="m">14/14 unit tests · APK 8,710,088 bytes</p>
+    </div>
+  </div>
+
+  <h2>High scores</h2>
+  <div class="scores">
+    <div class="score"><b>4.0e-08</b><span>Gradient check</span></div>
+    <div class="score"><b>≤11.5%</b><span>Formant error</span></div>
+    <div class="score"><b>129 / 0</b><span>Links / broken</span></div>
+  </div>
+
+  <div class="note">
+    <p class="lbl">From the notebook</p>
+    <h3>The ARM64 aapt2 trap that eats Android builds on-device</h3>
+    <p>One Gradle property decides whether any on-device Android build can succeed — and the error message says “file not found”, which is why it costs people days.</p>
+    <a href="#">Read the entry →</a>
+  </div>
+
+  <footer>
+    <span>© 2026 Saeed · ExploreZone</span>
+    <span>Design 15 — Arcade / 8-bit</span>
+  </footer>
+
+</div>
+</body>
+</html>
