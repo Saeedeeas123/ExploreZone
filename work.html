@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Work — Saeed</title>
+<meta name="description" content="Standalone, reusable Android modules built by Saeed: offline GGUF and LiteRT-LM engines, an OpenAI-compatible LLM client, a modular keyboard, and screen-edge key strips.">
+<meta name="author" content="Saeed">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">Saeed<span>ExploreZone</span></a>
+    <div class="nav-links">
+      <a href="index.html">About</a>
+      <a href="work.html" aria-current="page">Work</a>
+      <a href="https://github.com/Saeedeeas123">GitHub</a>
+    </div>
+  </div>
+</nav>
+<main class="wrap">
+
+  <section class="hero">
+    <p class="eyebrow">Work</p>
+    <h1>Modules I've built.</h1>
+    <p class="lede">
+      Standalone Android tools, each written as a module rather than an app feature — so any future app
+      can pick one up without re-debugging it.
+    </p>
+  </section>
+
+  <ul class="clean">
+
+    <li>
+      <div class="tags"><span class="tag info">AI-LLM</span><span class="tag">v0.2.0</span></div>
+      <div class="t"><a href="https://github.com/Saeedeeas123/minikeys">core-llm</a></div>
+      <div class="d">An OpenAI-compatible LLM client for Android with an API-key vault backed by the
+      Android Keystore. Zero third-party dependencies — it talks to any provider, or to a local
+      llama.cpp, Ollama or LM Studio server.</div>
+      <div class="d"><a href="https://github.com/Saeedeeas123/minikeys">Repository →</a></div>
+    </li>
+
+    <li>
+      <div class="tags"><span class="tag info">AI-LLM</span><span class="tag">v0.1.0</span></div>
+      <div class="t"><a href="https://github.com/Saeedeeas123/core-litertlm">core-litertlm</a></div>
+      <div class="d">A safe, app-agnostic loader for Google's LiteRT-LM (<code>.litertlm</code>) models.
+      It validates the file's magic header before the native layer ever sees it, refuses to run on the
+      main thread, and turns every failure into a message that says what to do.</div>
+      <div class="d"><a href="https://github.com/Saeedeeas123/core-litertlm">Repository →</a></div>
+    </li>
+
+    <li>
+      <div class="tags"><span class="tag info">AI-LLM</span><span class="tag">v0.1.0</span></div>
+      <div class="t"><a href="https://github.com/Saeedeeas123/llamachat">core-llamacpp</a></div>
+      <div class="d">Runs GGUF models fully on-device through llama.cpp — CPU only, arm64-v8a, with the
+      ARM dot-product kernels actually enabled in the shipped build.</div>
+      <div class="d"><a href="https://github.com/Saeedeeas123/llamachat">Repository →</a></div>
+    </li>
+
+    <li>
+      <div class="tags"><span class="tag info">Input-UI</span><span class="tag">v0.1.1</span></div>
+      <div class="t"><a href="https://github.com/Saeedeeas123/minikeys">minikeys-keyboard</a></div>
+      <div class="d">A modular Android keyboard (IME): the input method, the settings model and a
+      canvas-drawn keyboard view, split into reusable modules instead of one app.</div>
+      <div class="d"><a href="https://github.com/Saeedeeas123/minikeys">Repository →</a></div>
+    </li>
+
+    <li>
+      <div class="tags"><span class="tag info">Input-UI</span><span class="tag">v0.2.0</span></div>
+      <div class="t"><a href="https://github.com/Saeedeeas123/stickkeys">stickkeys-edge-keys</a></div>
+      <div class="d">Vertical key strips pinned to both screen edges. Tap a key and the sticker, emoji or
+      GIF you picked lands on the clipboard — overlay permission only, no keyboard involved.</div>
+      <div class="d"><a href="https://github.com/Saeedeeas123/stickkeys">Repository →</a></div>
+    </li>
+
+    <li>
+      <div class="tags"><span class="tag info">Input-UI</span><span class="tag">v0.1.0</span></div>
+      <div class="t"><a href="https://github.com/Saeedeeas123/minikeys">minikeys-shortcut</a></div>
+      <div class="d">Always-on edge keys that act on the app in front of you: type into its focused field,
+      send a real key combination, or press that screen's own buttons through the accessibility service.</div>
+      <div class="d"><a href="https://github.com/Saeedeeas123/minikeys">Repository →</a></div>
+    </li>
+
+  </ul>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 <b>Saeed</b> · ExploreZone</span>
+    <span>Static HTML. No build step, no trackers, no CDN.</span>
+    <span><a href="https://github.com/Saeedeeas123">github.com/Saeedeeas123</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

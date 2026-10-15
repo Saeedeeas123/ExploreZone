@@ -3,188 +3,69 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Saeed — on-device AI, Android systems, from-scratch engineering</title>
-<meta name="description" content="Open notebook: offline Android agents, on-device LLM inference, and systems built from pure math. Every claim measured on real hardware.">
+<title>Saeed — entrepreneur, geek, AI obsessive</title>
+<meta name="description" content="Saeed — entrepreneur, technology enthusiast and AI obsessive. Working with intelligent agents: evaluating, comparing and using them to write software and solve general problems.">
 <meta name="author" content="Saeed">
-<meta name="publisher" content="ExploreZone">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="ExploreZone — lab·notebook">
-<meta property="og:title" content="Saeed — on-device AI, Android systems, from-scratch engineering">
-<meta property="og:description" content="Open notebook: offline Android agents, on-device LLM inference, and systems built from pure math.">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-
 <nav class="nav">
   <div class="nav-inner">
-    <a class="brand" href="index.html">ExploreZone<span>lab·notebook</span></a>
+    <a class="brand" href="index.html">Saeed<span>ExploreZone</span></a>
     <div class="nav-links">
-      <a href="index.html" aria-current="page">Home</a>
-      <a href="projects.html">Work</a>
-      <a href="notebook.html">Notebook</a>
-      <a href="about.html">About</a>
+      <a href="index.html" aria-current="page">About</a>
+      <a href="work.html">Work</a>
       <a href="https://github.com/Saeedeeas123">GitHub</a>
     </div>
   </div>
 </nav>
-
 <main class="wrap">
 
   <section class="hero">
-    <p class="eyebrow">Open notebook · Android · On-device AI · Automation</p>
-    <h1>I build AI systems that run entirely on the phone — and I measure everything I claim.</h1>
-    <p class="byline">By <b>Saeed</b> — founder of <b>ExploreZone</b> · author, owner &amp; publisher of this notebook</p>
+    <p class="eyebrow">About</p>
+    <h1>Entrepreneur. Geek. AI obsessive.</h1>
     <p class="lede">
-      I am an independent engineer and entrepreneur working on offline-first Android agents, on-device
-      language models, and systems written from scratch out of pure math. My entire toolchain — compiler,
-      SDK, CI, and test device — is one Android phone. This site is both my portfolio and my open lab
-      notebook: the work, the failures, and the numbers behind both.
+      I'm Saeed — an entrepreneur, a technology enthusiast, a geek and a nerd, and an AI obsessive.
+      I'm trying to make a living on my own terms by going into the AI world myself: searching, testing
+      and learning until the work pays off.
     </p>
     <div class="meta">
       <span><b>Based in</b> Iran</span>
-      <span><b>Test device</b> Redmi Note 13 Pro 5G · Android 16</span>
-      <span><b>Venture</b> ExploreZone — AI product testing</span>
+      <span><b>Focus</b> AI agents · software · problem-solving</span>
+      <span><b>Open to</b> collaboration</span>
     </div>
     <div class="btns">
-      <a class="btn primary" href="notebook.html">Read the notebook</a>
-      <a class="btn" href="projects.html">See the work</a>
+      <a class="btn primary" href="work.html">See my work</a>
       <a class="btn" href="https://github.com/Saeedeeas123">GitHub profile</a>
     </div>
   </section>
 
-  <h2>What I do</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>On-device AI systems</h3>
-      <p>Android agents that need no cloud: on-device LLM inference, offline speech-to-text, accessibility-driven
-      task execution, and a decision layer that scores every candidate action.</p>
-      <p class="metric">Engines: llama.cpp / GGUF · MediaPipe LLM Inference · LiteRT · sherpa-onnx · Whisper</p>
-    </div>
-    <div class="card">
-      <h3>From-scratch engineering</h3>
-      <p>When a library would hide the mechanism, I write the mechanism: neural networks with hand-derived
-      backpropagation, speech synthesis, FFT, DTW, 3D rasterization — standard library only, no ML frameworks.</p>
-      <p class="metric">Gradient check <code>4.0e-08</code> · formant recovery <code>≤11.5%</code></p>
-    </div>
-    <div class="card">
-      <h3>Build &amp; release infrastructure</h3>
-      <p>A complete Android toolchain running inside a Linux container on the phone itself: Gradle and AGP on
-      ARM64, ARM-native aapt2, fork-based GitHub Actions pipelines, signed APKs, tagged releases.</p>
-      <p class="metric">9 shipped builds on one project · root-caused CI failures from raw run logs</p>
-    </div>
-    <div class="card">
-      <h3>AI product testing — ExploreZone</h3>
-      <p>Human-in-the-loop testing for AI products: reproducible bug discovery, behaviour analysis, and
-      model/workflow comparison. The deliverable is structured evidence, not opinions.</p>
-      <p class="metric">Output: what was tested · what happened · why it matters · how to reproduce it</p>
-    </div>
-  </div>
-
-  <h2>Selected work</h2>
   <div class="grid">
 
     <div class="card">
-      <div class="tags"><span class="tag info">Android</span><span class="tag info">Agent</span><span class="tag warn">Rebuilding</span></div>
-      <h3>Cosmo — offline Android agent</h3>
-      <p>Voice → decision → action, entirely on the phone. Offline STT confirmed working on device; the first
-      execution model was rejected by real device testing, so v2 is being rebuilt around a layered
-      FIND/DO architecture with a mandatory per-step trace.</p>
-      <p class="metric">Device-tested · 8 defects found and fixed in round one · architecture rewritten from scratch</p>
+      <h3>What I'm doing now</h3>
+      <p>I work with intelligent agents — evaluating them, comparing them, and using them to get my own
+      jobs done. Those jobs are mostly writing software and solving general problems.</p>
     </div>
 
     <div class="card">
-      <div class="tags"><span class="tag ok">Working</span><span class="tag info">From scratch</span></div>
-      <h3>Anima — talking avatar, written from pure math</h3>
-      <p>A human model built with no third-party libraries: hand-written phonemizer, formant voice synthesis,
-      viseme curves, a 3D rasterized face, a neural language model, and ears that learn from its own voice.</p>
-      <p class="metric">Perplexity <code>2.6</code> vs unigram <code>44.1</code> · gradient check <code>4.0e-08</code> · unseen-voice recognition <code>100%</code> · mirror symmetry <code>0.000000 mm</code></p>
+      <h3>Ideas</h3>
+      <p>I love idea-generation: I like giving models ideas that nobody has given them before.</p>
     </div>
 
     <div class="card">
-      <div class="tags"><span class="tag ok">Shipped</span><span class="tag info">Android</span></div>
-      <h3>MiniKeys — modular Android keyboard with cloud AI</h3>
-      <p>A keyboard built as reusable Gradle modules, including an OpenAI-compatible client and an
-      Android-Keystore key vault. The offline-inference experiment was deliberately removed after a native
-      crash I could not evidence — and the removal was verified byte-level.</p>
-      <p class="metric">APK <code>8,710,088 bytes</code> · <code>14/14</code> unit tests green · zero native libraries after removal</p>
-    </div>
-
-    <div class="card">
-      <div class="tags"><span class="tag ok">Shipped</span><span class="tag info">From scratch</span></div>
-      <h3>LLM Lab — a tiny GPT, twice</h3>
-      <p>A decoder-only transformer with a hand-written backward pass, plus an Android app that reimplements
-      the same model in Kotlin, trains it live on screen, and loads the reference checkpoint.</p>
-      <p class="metric">Kotlin vs NumPy agreement: max <code>|Δp| = 1.513e-07</code> · APK <code>9,862,893 bytes</code></p>
-    </div>
-
-    <div class="card">
-      <div class="tags"><span class="tag warn">Device-testing</span><span class="tag info">Computer vision</span></div>
-      <h3>EyePoint — eye-gaze pointer</h3>
-      <p>A phone-wide overlay pointer driven by gaze. Built as a fresh fork after I traced the predecessor's
-      jitter to four code-level defects upstream of its smoothing filter — including a right-eye landmark bug.</p>
-      <p class="metric">4 root causes documented · v0.1.1 shipped · pipeline rebuilt layer by layer</p>
-    </div>
-
-    <div class="card">
-      <div class="tags"><span class="tag ok">Verified</span><span class="tag info">Infrastructure</span></div>
-      <h3>android-build-ship — a verified build skill</h3>
-      <p>A written, versioned procedure for building and shipping Android apps on this device, with a project
-      template. Dogfooded on itself: the first repo it created was its own.</p>
-      <p class="metric">Deployed and reused across 6+ projects · defect found and fixed by inspection before first build</p>
+      <h3>Collaboration</h3>
+      <p>I love working with people who think this way too. If that's you, the GitHub profile is the way in.</p>
     </div>
 
   </div>
-
-  <h2>Latest notebook entries</h2>
-  <ul class="clean">
-    <li>
-      <div class="t"><a href="notes/note-aapt2-arm-trap.html">The ARM64 aapt2 trap that eats Android builds on-device</a></div>
-      <div class="d">Why every Gradle build fails with “cannot execute: required file not found”, and the one property that fixes it.</div>
-    </li>
-    <li>
-      <div class="t"><a href="notes/note-llamacpp-addass.html">Zero tokens from a perfectly good GGUF model</a></div>
-      <div class="d">A single boolean in the chat template made greedy decoding answer with an end-of-turn token. Plus the KV-cache leak.</div>
-    </li>
-    <li>
-      <div class="t"><a href="notes/note-mediapipe-task-header.html">MediaPipe model bundles never start with “PK”</a></div>
-      <div class="d">Measured byte offsets of real .task files — and why a sensible-looking guard rejects every genuine bundle.</div>
-    </li>
-    <li>
-      <div class="t"><a href="notes/note-voice-as-touch.html">The voice-as-touch category is structurally empty</a></div>
-      <div class="d">~2,000 repos swept, 42 curated, 12 issue trackers mined. The ecosystem built agents — nobody built the primitive layer.</div>
-    </li>
-    <li>
-      <div class="t"><a href="notes/note-github-as-notebook.html">GitHub as a lab notebook, honestly assessed</a></div>
-      <div class="d">Open Notebook Science, what a DOI actually adds, and the adoption data that says nobody will come just because it is open.</div>
-    </li>
-    <li>
-      <div class="t"><a href="notes/note-github-pages-limits.html">GitHub Pages: the limits that matter, and the one that doesn’t</a></div>
-      <div class="d">Numeric quotas are irrelevant for a text site. The commercial-use clause is not.</div>
-    </li>
-  </ul>
-  <p><a href="notebook.html">All entries →</a></p>
-
-  <h2>Numbers I can defend</h2>
-  <table>
-    <thead><tr><th>Metric</th><th>Value</th><th>Where it comes from</th></tr></thead>
-    <tbody>
-      <tr><td>Backprop gradient check</td><td><code>4.0e-08</code></td><td>Anima neural language model, numeric vs analytic</td></tr>
-      <tr><td>Held-out perplexity</td><td><code>2.6</code> vs <code>44.1</code> unigram</td><td>Anima brain, stdlib-only training</td></tr>
-      <tr><td>Speech formant recovery</td><td><code>≤11.5%</code> error</td><td>Anima voice, LPC analysis of synthesized audio</td></tr>
-      <tr><td>Kotlin vs NumPy agreement</td><td><code>1.513e-07</code> max |Δp|</td><td>LLM Lab cross-implementation test</td></tr>
-      <tr><td>Translation audit</td><td><code>0</code> flagged / 3,000 lines</td><td>Operit2 English localization gate</td></tr>
-      <tr><td>Localization progress</td><td><code>3,579 / 4,826</code> lines (74.2%)</td><td>Operit2, machine-verified</td></tr>
-      <tr><td>Repos swept in one landscape study</td><td><code>~2,000</code> → 42 curated</td><td>Voice-as-touch research</td></tr>
-    </tbody>
-  </table>
 
 </main>
 
 <footer>
   <div class="wrap">
-    <span>© 2026 <b>Saeed</b> · ExploreZone — author, owner &amp; publisher</span>
+    <span>© 2026 <b>Saeed</b> · ExploreZone</span>
     <span>Static HTML. No build step, no trackers, no CDN.</span>
-    <span><a href="about.html">About this notebook</a></span>
     <span><a href="https://github.com/Saeedeeas123">github.com/Saeedeeas123</a></span>
   </div>
 </footer>
